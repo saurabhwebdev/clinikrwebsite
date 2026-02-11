@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import {
   Stethoscope, Calendar, FileText, BarChart3,
   Check, Clock, TrendingUp, ArrowRight,
-  Bell, UserPlus, CreditCard,
 } from 'lucide-react';
 
 /* ── phone UI data ───────────────────────────────────── */
@@ -14,27 +13,6 @@ const mockPatients = [
   { name: 'Neha Gupta',    time: '12:00 PM', status: 'Scheduled',  color: '#6366F1' },
 ];
 
-/* ── notification cards that float around phone ──────── */
-const floatingCards = [
-  {
-    Icon: Bell, label: 'New Appointment',
-    sub: 'Priya Singh — 11:00 AM',
-    color: '#4F46E5',
-    x: -110, y: 60, rotate: -4, delay: 0.8,
-  },
-  {
-    Icon: UserPlus, label: '+3 Patients Today',
-    sub: 'Walk-in registrations',
-    color: '#22C55E',
-    x: 80, y: 180, rotate: 3, delay: 1.1,
-  },
-  {
-    Icon: CreditCard, label: 'Payment Received',
-    sub: '₹1,200 — Consultation',
-    color: '#F59E0B',
-    x: -90, y: 340, rotate: -2, delay: 1.4,
-  },
-];
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -140,31 +118,6 @@ export default function Hero() {
         >
           {/* glow */}
           <div className="hero-phone-glow" />
-
-          {/* floating notification cards */}
-          {floatingCards.map(({ Icon, label, sub, color, x, y, rotate, delay }) => (
-            <motion.div
-              key={label}
-              className="hero-float-card"
-              initial={{ opacity: 0, scale: 0.8, x: x * 0.5, y: y }}
-              animate={{ opacity: 1, scale: 1, x, y, rotate }}
-              transition={{ delay, duration: 0.7, ease: 'backOut' }}
-            >
-              <motion.div
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: delay * 0.5 }}
-                className="hero-float-card-inner"
-              >
-                <div className="hero-float-icon" style={{ background: `${color}12`, color }}>
-                  <Icon size={13} />
-                </div>
-                <div>
-                  <div className="hero-float-label">{label}</div>
-                  <div className="hero-float-sub">{sub}</div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
 
           {/* phone frame */}
           <div className="hero-phone-frame">
@@ -472,36 +425,6 @@ export default function Hero() {
           pointer-events: none;
         }
 
-        /* floating cards */
-        .hero-float-card {
-          position: absolute;
-          z-index: 3;
-          pointer-events: none;
-        }
-        .hero-float-card-inner {
-          display: flex; align-items: center; gap: 10px;
-          padding: 10px 14px;
-          background: rgba(255,255,255,0.85);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-radius: 14px;
-          border: 1px solid rgba(255,255,255,0.7);
-          box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-          white-space: nowrap;
-        }
-        .hero-float-icon {
-          width: 30px; height: 30px;
-          border-radius: 8px;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-        }
-        .hero-float-label {
-          font-size: 0.72rem; font-weight: 700; color: #1E293B;
-        }
-        .hero-float-sub {
-          font-size: 0.6rem; color: #94A3B8; margin-top: 1px;
-        }
-
         /* phone frame (outer ring) */
         .hero-phone-frame {
           position: relative;
@@ -612,7 +535,6 @@ export default function Hero() {
           .hero-ctas { justify-content: center; }
           .hero-trust { justify-content: center; }
           .hero-headline br { display: none; }
-          .hero-float-card { display: none; }
           .hero-ring { display: none; }
         }
         @media (max-width: 480px) {
