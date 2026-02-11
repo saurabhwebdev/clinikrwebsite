@@ -83,6 +83,7 @@ const CYCLE_MS = 3000;
 export default function Hero() {
   const sectionRef = useRef(null);
   const [activeTab, setActiveTab] = useState(0);
+  const [hovered, setHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -90,11 +91,12 @@ export default function Hero() {
   });
   const phoneY = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
-  /* auto-cycle tabs */
+  /* auto-cycle tabs — pause on hover */
   useEffect(() => {
+    if (hovered) return;
     const id = setInterval(() => setActiveTab(t => (t + 1) % 4), CYCLE_MS);
     return () => clearInterval(id);
-  }, []);
+  }, [hovered]);
 
   const screen = screens[activeTab];
 
@@ -183,11 +185,13 @@ export default function Hero() {
 
         {/* RIGHT — phone ───────────────────────────── */}
         <motion.div
-          className="hero-phone-col"
+          className={`hero-phone-col${hovered ? ' hero-phone-hovered' : ''}`}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{ y: phoneY }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         >
           <div className="hero-phone-glow" />
 
@@ -268,10 +272,14 @@ export default function Hero() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* bottom nav — always visible */}
+              {/* bottom nav — always visible, clickable */}
               <div className="hero-phone-nav">
                 {tabs.map(({ Ic, label }, i) => (
-                  <div key={label} className="hero-phone-nav-item">
+                  <div
+                    key={label}
+                    className={`hero-phone-nav-item${activeTab === i ? ' active' : ''}`}
+                    onClick={() => setActiveTab(i)}
+                  >
                     <Ic size={16} color={activeTab === i ? '#4F46E5' : '#CBD5E1'} />
                     {activeTab === i && <div className="hero-phone-nav-dot" />}
                   </div>
@@ -430,21 +438,41 @@ export default function Hero() {
         .hero-trust-item svg { color: var(--primary); }
 
         /* phone */
-        .hero-phone-col { position: relative; flex-shrink: 0; }
+        .hero-phone-col {
+          position: relative; flex-shrink: 0;
+          cursor: pointer;
+        }
         .hero-phone-glow {
           position: absolute; width: 340px; height: 400px;
           top: 50%; left: 50%; transform: translate(-50%,-50%);
           background: radial-gradient(ellipse,rgba(79,70,229,0.12) 0%,rgba(124,58,237,0.04) 50%,transparent 70%);
           filter: blur(50px); pointer-events: none;
+          transition: all 0.4s ease;
+        }
+        .hero-phone-hovered .hero-phone-glow {
+          width: 400px; height: 460px;
+          background: radial-gradient(ellipse,rgba(79,70,229,0.22) 0%,rgba(124,58,237,0.08) 50%,transparent 70%);
+          filter: blur(60px);
         }
         .hero-phone-frame {
           position: relative; padding: 3px; border-radius: 40px;
           background: linear-gradient(160deg,rgba(79,70,229,0.15),rgba(124,58,237,0.08),rgba(226,232,240,0.5));
+          transition: all 0.4s ease;
+        }
+        .hero-phone-hovered .hero-phone-frame {
+          padding: 3px;
+          background: linear-gradient(160deg,rgba(79,70,229,0.35),rgba(124,58,237,0.2),rgba(99,102,241,0.15));
+          box-shadow: 0 0 0 1px rgba(79,70,229,0.08);
         }
         .hero-phone {
           position: relative; width: 270px; height: 540px;
           background: #fff; border-radius: 38px; overflow: hidden;
           box-shadow: 0 30px 80px rgba(0,0,0,0.06), 0 4px 16px rgba(79,70,229,0.04);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .hero-phone-hovered .hero-phone {
+          transform: translateY(-6px);
+          box-shadow: 0 40px 100px rgba(0,0,0,0.10), 0 8px 24px rgba(79,70,229,0.10);
         }
         .hero-phone-island {
           position: absolute; top: 8px; left: 50%;
@@ -512,7 +540,10 @@ export default function Hero() {
         }
         .hero-phone-nav-item {
           display: flex; flex-direction: column; align-items: center; gap: 2px;
+          cursor: pointer; padding: 4px 8px; border-radius: 8px;
+          transition: background 0.2s ease;
         }
+        .hero-phone-nav-item:hover { background: rgba(79,70,229,0.05); }
         .hero-phone-nav-dot {
           width: 4px; height: 4px; border-radius: 2px; background: #4F46E5;
         }
