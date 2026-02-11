@@ -1,7 +1,8 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   UserPlus, CalendarPlus, HeartPulse, ClipboardList,
-  Pill, Receipt, CheckCircle2, ArrowRight
+  Pill, Receipt, CheckCircle2, ArrowRight, ChevronRight
 } from 'lucide-react';
 
 const steps = [
@@ -71,65 +72,79 @@ export default function Workflow() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(7, 1fr)',
-            gap: 8,
+            gridTemplateColumns: 'repeat(13, auto)',
+            gap: 0,
             position: 'relative',
             zIndex: 1,
+            justifyContent: 'center',
           }} className="workflow-grid">
             {steps.map(({ icon: Icon, title, desc, time, color }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 + i * 0.1 }}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                }}
-              >
-                {/* Circle node */}
-                <div style={{
-                  width: 52, height: 52, borderRadius: 16,
-                  background: 'var(--surface)',
-                  border: `2px solid ${color}40`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: 16,
-                  boxShadow: `0 4px 16px ${color}15`,
-                  transition: 'all 0.3s ease',
-                }}>
-                  <Icon size={22} color={color} />
-                </div>
+              <React.Fragment key={title}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 + i * 0.1 }}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    width: 120,
+                  }}
+                >
+                  {/* Circle node */}
+                  <div style={{
+                    width: 52, height: 52, borderRadius: 16,
+                    background: 'var(--surface)',
+                    border: `2px solid ${color}40`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 16,
+                    boxShadow: `0 4px 16px ${color}15`,
+                    transition: 'all 0.3s ease',
+                  }}>
+                    <Icon size={22} color={color} />
+                  </div>
 
-                {/* Time badge */}
-                <span style={{
-                  fontSize: '0.65rem', fontWeight: 700,
-                  color: 'var(--primary)',
-                  background: 'var(--primary-soft)',
-                  padding: '2px 8px', borderRadius: 4,
-                  marginBottom: 8,
-                }}>
-                  {time}
-                </span>
+                  {/* Time badge */}
+                  <span style={{
+                    fontSize: '0.65rem', fontWeight: 700,
+                    color: 'var(--primary)',
+                    background: 'var(--primary-soft)',
+                    padding: '2px 8px', borderRadius: 4,
+                    marginBottom: 8,
+                  }}>
+                    {time}
+                  </span>
 
-                {/* Title */}
-                <h4 style={{
-                  fontSize: '0.88rem', fontWeight: 700,
-                  color: 'var(--text)', marginBottom: 4,
-                }}>
-                  {title}
-                </h4>
+                  {/* Title */}
+                  <h4 style={{
+                    fontSize: '0.88rem', fontWeight: 700,
+                    color: 'var(--text)', marginBottom: 4,
+                  }}>
+                    {title}
+                  </h4>
 
-                {/* Description */}
-                <p style={{
-                  fontSize: '0.75rem', color: 'var(--text-secondary)',
-                  lineHeight: 1.4, margin: 0,
-                }}>
-                  {desc}
-                </p>
-              </motion.div>
+                  {/* Description */}
+                  <p style={{
+                    fontSize: '0.75rem', color: 'var(--text-secondary)',
+                    lineHeight: 1.4, margin: 0,
+                  }}>
+                    {desc}
+                  </p>
+                </motion.div>
+
+                {/* Arrow between steps */}
+                {i < steps.length - 1 && (
+                  <div className="workflow-arrow" style={{
+                    display: 'flex', alignItems: 'flex-start',
+                    justifyContent: 'center',
+                    paddingTop: 14,
+                  }}>
+                    <ChevronRight size={18} color="var(--primary)" strokeWidth={2.5} />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -173,14 +188,17 @@ export default function Workflow() {
       <style>{`
         @media (max-width: 1024px) {
           .workflow-grid {
-            grid-template-columns: repeat(4, 1fr) !important;
+            display: grid !important;
+            grid-template-columns: repeat(4, auto) !important;
             gap: 20px !important;
+            justify-content: center !important;
           }
           .workflow-bar { display: none; }
+          .workflow-arrow { display: none !important; }
         }
         @media (max-width: 640px) {
           .workflow-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(2, auto) !important;
             gap: 24px !important;
           }
         }
