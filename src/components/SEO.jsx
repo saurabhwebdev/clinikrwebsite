@@ -1,35 +1,55 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const SITE = 'https://clinikr.xyz';
 const DEFAULT_TITLE = 'Clinikr — All-in-One Clinic Management App';
 const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one beautiful app. Free forever.';
 const OG_IMAGE = `${SITE}/api/og`;
 
+function setMeta(attr, key, content) {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
+function setCanonical(href) {
+  let el = document.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'canonical');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
 export default function SEO({ title, description, path = '/' }) {
   const pageTitle = title ? `${title} | Clinikr` : DEFAULT_TITLE;
   const pageDesc = description || DEFAULT_DESC;
   const url = `${SITE}${path}`;
 
-  return (
-    <Helmet>
-      <title>{pageTitle}</title>
-      <meta name="description" content={pageDesc} />
-      <link rel="canonical" href={url} />
+  useEffect(() => {
+    document.title = pageTitle;
+    setMeta('name', 'description', pageDesc);
+    setCanonical(url);
 
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDesc} />
-      <meta property="og:image" content={OG_IMAGE} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="Clinikr" />
+    setMeta('property', 'og:type', 'website');
+    setMeta('property', 'og:url', url);
+    setMeta('property', 'og:title', pageTitle);
+    setMeta('property', 'og:description', pageDesc);
+    setMeta('property', 'og:image', OG_IMAGE);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:site_name', 'Clinikr');
 
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={url} />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDesc} />
-      <meta name="twitter:image" content={OG_IMAGE} />
-    </Helmet>
-  );
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:url', url);
+    setMeta('name', 'twitter:title', pageTitle);
+    setMeta('name', 'twitter:description', pageDesc);
+    setMeta('name', 'twitter:image', OG_IMAGE);
+  }, [pageTitle, pageDesc, url]);
+
+  return null;
 }
