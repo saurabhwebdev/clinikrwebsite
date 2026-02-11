@@ -39,7 +39,7 @@ export default function Footer() {
         style={{
           position: 'absolute',
           right: '-10px',
-          bottom: '57px',
+          bottom: '56px',
           width: 'clamp(200px, 22vw, 320px)',
           height: 'auto',
           opacity: 0.8,
