@@ -23,8 +23,8 @@ const faqs = [
     a: 'Yes. Go to Settings > Invoice Settings to customize your invoice prefix, numbering, terms and conditions, and payment instructions. Your clinic logo and GSTIN appear automatically.',
   },
   {
-    q: 'Is Clinikr free?',
-    a: 'Yes, Clinikr is free to use with all core features included. There are no hidden charges for patient management, appointments, EMR, billing, or inventory.',
+    q: 'How much does Clinikr cost?',
+    a: 'Clinikr offers simple, fair pricing plans for clinics of all sizes. All core features — patient management, appointments, EMR, billing, and inventory — are included with no hidden charges.',
   },
 ];
 

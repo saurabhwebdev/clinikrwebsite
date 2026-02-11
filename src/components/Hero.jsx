@@ -156,7 +156,7 @@ export default function Hero() {
           >
             <a href="#cta" className="hero-cta-primary">
               <span className="hero-cta-shimmer" />
-              Start Free
+              Get Started
               <ArrowRight size={16} style={{ marginLeft: 8 }} />
             </a>
             <a href="#features" className="hero-cta-secondary">
@@ -171,7 +171,7 @@ export default function Hero() {
             transition={{ delay: 0.9, duration: 0.5 }}
           >
             {[
-              { icon: Check,       text: 'Free Forever' },
+              { icon: Check,       text: 'Fair Pricing' },
               { icon: Clock,       text: 'Setup in 2 min' },
               { icon: TrendingUp,  text: 'GST Compliant' },
             ].map(({ icon: Ic, text }) => (

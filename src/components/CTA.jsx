@@ -69,7 +69,7 @@ export default function CTA() {
                     boxShadow: '0 0 8px rgba(34,197,94,0.6)',
                   }} />
                   <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#C7D2FE', letterSpacing: '0.03em' }}>
-                    Free forever — No credit card needed
+                    Simple pricing — Setup in 2 minutes
                   </span>
                 </div>
 
