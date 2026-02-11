@@ -23,66 +23,94 @@ export default function Navbar() {
     <>
       <nav style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
+        top: scrolled ? 12 : 16,
+        left: '50%',
+        transform: 'translateX(-50%)',
         zIndex: 1000,
-        padding: '0 24px',
-        height: 72,
+        width: scrolled ? 'min(92%, 900px)' : 'min(94%, 1060px)',
+        padding: '0 8px',
+        height: scrolled ? 56 : 62,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: scrolled ? 'rgba(250,251,255,0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
-        transition: 'all 0.3s ease',
+        background: scrolled
+          ? 'linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%)'
+          : 'linear-gradient(135deg, rgba(79,70,229,0.92) 0%, rgba(99,102,241,0.92) 50%, rgba(124,58,237,0.92) 100%)',
+        backdropFilter: 'blur(20px)',
+        borderRadius: 100,
+        boxShadow: scrolled
+          ? '0 8px 32px rgba(79,70,229,0.3), 0 2px 8px rgba(0,0,0,0.1)'
+          : '0 4px 24px rgba(79,70,229,0.2), 0 1px 4px rgba(0,0,0,0.06)',
+        border: '1px solid rgba(255,255,255,0.15)',
+        transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
         <div style={{
-          maxWidth: 1200,
           width: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          padding: '0 12px',
         }}>
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <img src="/logo.png" alt="Clinikr" style={{ height: 36, width: 36, borderRadius: 10 }} />
+          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
+            <img src="/logo.png" alt="Clinikr" style={{
+              height: 32,
+              width: 32,
+              borderRadius: 8,
+              border: '2px solid rgba(255,255,255,0.25)',
+            }} />
             <span style={{
-              fontSize: '1.25rem',
+              fontSize: '1.15rem',
               fontWeight: 800,
-              color: 'var(--text)',
+              color: '#fff',
               letterSpacing: '-0.02em',
             }}>
               Clinikr
             </span>
           </a>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="nav-desktop">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="nav-desktop">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} style={{
-                fontSize: '0.9rem',
+              <a key={link.href} href={link.href} className="nav-pill-link" style={{
+                fontSize: '0.85rem',
                 fontWeight: 500,
-                color: 'var(--text-secondary)',
+                color: 'rgba(255,255,255,0.85)',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
+                padding: '7px 16px',
+                borderRadius: 100,
+                transition: 'all 0.2s ease',
               }}
-                onMouseEnter={e => e.target.style.color = 'var(--primary)'}
-                onMouseLeave={e => e.target.style.color = 'var(--text-secondary)'}
+                onMouseEnter={e => {
+                  e.target.style.color = '#fff';
+                  e.target.style.background = 'rgba(255,255,255,0.15)';
+                }}
+                onMouseLeave={e => {
+                  e.target.style.color = 'rgba(255,255,255,0.85)';
+                  e.target.style.background = 'transparent';
+                }}
               >
                 {link.label}
               </a>
             ))}
             <a href="#cta" style={{
-              padding: '10px 24px',
-              background: 'var(--primary)',
-              color: '#fff',
-              borderRadius: 12,
-              fontSize: '0.9rem',
-              fontWeight: 600,
+              padding: '8px 22px',
+              background: '#fff',
+              color: '#4F46E5',
+              borderRadius: 100,
+              fontSize: '0.85rem',
+              fontWeight: 700,
               textDecoration: 'none',
-              transition: 'all 0.2s',
+              transition: 'all 0.2s ease',
+              marginLeft: 6,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             }}
-              onMouseEnter={e => e.target.style.background = 'var(--primary-dark)'}
-              onMouseLeave={e => e.target.style.background = 'var(--primary)'}
+              onMouseEnter={e => {
+                e.target.style.background = '#EEF2FF';
+                e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+              }}
+              onMouseLeave={e => {
+                e.target.style.background = '#fff';
+                e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+              }}
             >
               Get Started
             </a>
@@ -93,14 +121,16 @@ export default function Navbar() {
             onClick={() => setOpen(!open)}
             style={{
               display: 'none',
-              background: 'none',
-              border: 'none',
+              background: 'rgba(255,255,255,0.15)',
+              border: '1px solid rgba(255,255,255,0.2)',
               cursor: 'pointer',
-              color: 'var(--text)',
+              color: '#fff',
               padding: 8,
+              borderRadius: 12,
+              lineHeight: 0,
             }}
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
@@ -108,22 +138,25 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             style={{
               position: 'fixed',
-              top: 72,
-              left: 0,
-              right: 0,
+              top: 82,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 'min(92%, 400px)',
               zIndex: 999,
-              background: 'rgba(250,251,255,0.98)',
-              backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid var(--border)',
-              padding: '16px 24px',
+              background: 'linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%)',
+              borderRadius: 24,
+              padding: '20px 24px',
               display: 'flex',
               flexDirection: 'column',
-              gap: 12,
+              gap: 4,
+              boxShadow: '0 12px 40px rgba(79,70,229,0.35), 0 4px 12px rgba(0,0,0,0.1)',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}
           >
             {navLinks.map(link => (
@@ -132,11 +165,21 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   fontWeight: 500,
-                  color: 'var(--text-secondary)',
+                  color: 'rgba(255,255,255,0.9)',
                   textDecoration: 'none',
-                  padding: '8px 0',
+                  padding: '12px 16px',
+                  borderRadius: 14,
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => {
+                  e.target.style.background = 'rgba(255,255,255,0.12)';
+                  e.target.style.color = '#fff';
+                }}
+                onMouseLeave={e => {
+                  e.target.style.background = 'transparent';
+                  e.target.style.color = 'rgba(255,255,255,0.9)';
                 }}
               >
                 {link.label}
@@ -144,14 +187,15 @@ export default function Navbar() {
             ))}
             <a href="#cta" onClick={() => setOpen(false)} style={{
               padding: '12px 24px',
-              background: 'var(--primary)',
-              color: '#fff',
-              borderRadius: 12,
+              background: '#fff',
+              color: '#4F46E5',
+              borderRadius: 14,
               fontSize: '0.9rem',
-              fontWeight: 600,
+              fontWeight: 700,
               textDecoration: 'none',
               textAlign: 'center',
               marginTop: 8,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             }}>
               Get Started
             </a>
