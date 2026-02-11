@@ -32,30 +32,17 @@ export default function Footer() {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Decorative illustrations */}
-      <img
-        src="/images/doctors.svg"
-        alt=""
-        style={{
-          position: 'absolute',
-          left: '-30px',
-          bottom: '10px',
-          width: 'clamp(180px, 18vw, 260px)',
-          height: 'auto',
-          opacity: 0.04,
-          pointerEvents: 'none',
-        }}
-      />
+      {/* Decorative illustration */}
       <img
         src="/images/medical-care.svg"
         alt=""
         style={{
           position: 'absolute',
           right: '-30px',
-          bottom: '-15px',
+          bottom: '-50px',
           width: 'clamp(200px, 22vw, 320px)',
           height: 'auto',
-          opacity: 0.05,
+          opacity: 0.03,
           pointerEvents: 'none',
         }}
       />
