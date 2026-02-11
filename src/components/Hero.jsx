@@ -203,14 +203,14 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* screen content — crossfade on tab change */}
-              <AnimatePresence mode="wait">
+              {/* screen content — slide on tab change */}
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                   className="hero-phone-screen"
                 >
                   {/* header */}
