@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -57,7 +58,7 @@ export default function Navbar() {
           position: 'relative',
           zIndex: 1,
         }}>
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
             <img src="/logo.png" alt="Clinikr" style={{
               height: 32,
               width: 32,
@@ -72,7 +73,7 @@ export default function Navbar() {
             }}>
               Clinikr
             </span>
-          </a>
+          </Link>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="nav-desktop">
             {navLinks.map(link => (

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   Heart, Mail, Phone, MapPin,
   Stethoscope, CalendarCheck, Package, ShoppingCart,
@@ -16,10 +17,10 @@ const modules = [
 ];
 
 const links = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Support', href: '#' },
-  { label: 'Contact Us', href: '#' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Support', href: '/support' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 export default function Footer() {
@@ -100,7 +101,7 @@ export default function Footer() {
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {links.map(({ label, href }) => (
-                <a key={label} href={href} style={{
+                <Link key={label} to={href} style={{
                   fontSize: '0.82rem', color: '#94A3B8',
                   textDecoration: 'none', transition: 'color 0.2s',
                 }}
@@ -108,7 +109,7 @@ export default function Footer() {
                   onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </div>
 

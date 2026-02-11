@@ -1,47 +1,23 @@
 import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import WaveDivider from './components/WaveDivider'
-import StoryIntro from './components/StoryIntro'
-import Solution from './components/Solution'
-import PatientModule from './components/PatientModule'
-import AppointmentsModule from './components/AppointmentsModule'
-import EMRModule from './components/EMRModule'
-import BillingModule from './components/BillingModule'
-import POSModule from './components/POSModule'
-import InventoryModule from './components/InventoryModule'
-import Workflow from './components/Workflow'
-import Dashboard from './components/Dashboard'
-import WhyCliniker from './components/WhyCliniker'
-import Settings from './components/Settings'
-import TechStack from './components/TechStack'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Support from './pages/Support'
+import Contact from './pages/Contact'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <WaveDivider from="var(--bg)" to="var(--surface)" />
-      <StoryIntro />
-      <WaveDivider from="var(--surface)" to="var(--bg)" />
-      <Solution />
-      <PatientModule />
-      <AppointmentsModule />
-      <EMRModule />
-      <BillingModule />
-      <POSModule />
-      <InventoryModule />
-      <Workflow />
-      <Dashboard />
-      <WhyCliniker />
-      <Settings />
-      <TechStack />
-      <WaveDivider from="var(--bg)" to="var(--bg)" />
-      <CTA />
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/contact" element={<Contact />} />
+      </Route>
+    </Routes>
   )
 }
 
