@@ -1,5 +1,12 @@
 {
+  "framework": "vite",
+  "functions": {
+    "api/og.js": {
+      "runtime": "@vercel/edge"
+    }
+  },
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api|assets|images|logo\\.png|og-image\\.svg|robots\\.txt|sitemap\\.xml|site\\.webmanifest|vite\\.svg).*)", "destination": "/index.html" }
   ],
   "headers": [
