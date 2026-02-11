@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const SITE = 'https://clinikr.xyz';
 const DEFAULT_TITLE = 'Clinikr — All-in-One Clinic Management App';
 const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one beautiful app. Free forever.';
-const OG_IMAGE = `${SITE}/api/og`;
+const OG_IMAGE = `${SITE}/og-image.png`;
 
 function setMeta(attr, key, content) {
   let el = document.querySelector(`meta[${attr}="${key}"]`);
