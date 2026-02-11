@@ -349,10 +349,12 @@ export default function Navbar() {
             transition={{ duration: 0.2, ease: 'easeOut' }}
             style={{
               position: 'fixed',
-              top: scrolled ? 78 : 118,
+              top: 80,
               left: '50%',
               transform: 'translateX(-50%)',
               width: 'min(92%, 400px)',
+              maxHeight: 'calc(100dvh - 92px)',
+              overflowY: 'auto',
               zIndex: 999,
               background: 'linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%)',
               borderRadius: 24,
