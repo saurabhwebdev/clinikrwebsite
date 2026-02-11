@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
 const SITE = 'https://clinikr.xyz';
-const DEFAULT_TITLE = 'Clinikr — All-in-One Clinic Management App';
-const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one beautiful app. Free forever.';
+const DEFAULT_TITLE = 'Clinikr — Your Entire Clinic in One App | Free Forever';
+const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one app. Download free today and set up your clinic in 2 minutes.';
 const OG_IMAGE = `${SITE}/og-image.png`;
 
 function setMeta(attr, key, content) {
