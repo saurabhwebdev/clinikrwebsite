@@ -350,9 +350,10 @@ export default function Navbar() {
             style={{
               position: 'fixed',
               top: 80,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 'min(92%, 400px)',
+              left: '4%',
+              right: '4%',
+              maxWidth: 400,
+              margin: '0 auto',
               maxHeight: 'calc(100dvh - 92px)',
               overflowY: 'auto',
               zIndex: 999,
