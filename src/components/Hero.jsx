@@ -208,14 +208,16 @@ export default function Hero() {
               </div>
 
               {/* screen content — slide on tab change */}
-              <AnimatePresence mode="wait" initial={false}>
+              <div style={{ position: 'relative', overflow: 'hidden', flex: 1 }}>
+              <AnimatePresence initial={false}>
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, x: 60 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -60 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '-100%' }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   className="hero-phone-screen"
+                  style={{ position: 'absolute', inset: 0 }}
                 >
                   {/* header */}
                   <div className="hero-phone-header">
@@ -271,6 +273,7 @@ export default function Hero() {
                   </div>
                 </motion.div>
               </AnimatePresence>
+              </div>
 
               {/* bottom nav — always visible, clickable */}
               <div className="hero-phone-nav">
@@ -467,6 +470,7 @@ export default function Hero() {
           background: #fff; border-radius: 38px; overflow: hidden;
           box-shadow: 0 30px 80px rgba(0,0,0,0.06), 0 4px 16px rgba(79,70,229,0.04);
           transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+          display: flex; flex-direction: column;
         }
         .hero-phone-hovered .hero-phone {
           transform: translateY(-4px);
@@ -497,7 +501,7 @@ export default function Hero() {
           background: #22C55E; border-radius: 1px;
         }
 
-        .hero-phone-screen { padding-bottom: 50px; }
+        .hero-phone-screen { width: 100%; height: 100%; }
         .hero-phone-header {
           padding: 8px 16px 12px;
           display: flex; align-items: center; justify-content: space-between;
