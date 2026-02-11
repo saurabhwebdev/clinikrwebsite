@@ -111,6 +111,16 @@ export default function Hero() {
       <div className="hero-blob hero-blob-3" />
       <div className="hero-fade-bottom" />
 
+      {/* Decorative doctor illustration — bottom left */}
+      <motion.img
+        src="/images/medical-care.svg"
+        alt=""
+        className="hero-doctor-illustration"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 1 }}
+      />
+
       <div className="hero-inner">
         {/* LEFT — copy ─────────────────────────────── */}
         <div className="hero-copy">
@@ -183,7 +193,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — phone + illustration ─────────────── */}
+        {/* RIGHT — phone ───────────────────────────── */}
         <motion.div
           className={`hero-phone-col${hovered ? ' hero-phone-hovered' : ''}`}
           initial={{ opacity: 0, y: 50 }}
@@ -194,16 +204,6 @@ export default function Hero() {
           onMouseLeave={() => setHovered(false)}
         >
           <div className="hero-phone-glow" />
-
-          {/* Doctor illustration behind the phone */}
-          <motion.img
-            src="/images/medical-care.svg"
-            alt=""
-            className="hero-doctor-illustration"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          />
 
           <div className="hero-phone-frame">
             <div className="hero-phone">
@@ -447,15 +447,14 @@ export default function Hero() {
         }
         .hero-trust-item svg { color: var(--primary); }
 
-        /* doctor illustration */
+        /* doctor illustration — background decoration */
         .hero-doctor-illustration {
           position: absolute;
-          width: 320px; height: auto;
-          bottom: -30px; left: -110px;
-          opacity: 0.18;
+          width: 280px; height: auto;
+          bottom: 20px; left: clamp(20px, 5vw, 80px);
+          opacity: 0.07;
           pointer-events: none;
           z-index: 0;
-          filter: drop-shadow(0 4px 20px rgba(79,70,229,0.1));
         }
 
         /* phone */
