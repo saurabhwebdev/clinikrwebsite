@@ -36,8 +36,8 @@ export default function Footer() {
       <div style={{
         position: 'absolute',
         left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
+        bottom: '56px',
+        transform: 'translateX(-50%)',
         fontSize: 'clamp(120px, 18vw, 280px)',
         fontWeight: 900,
         color: 'rgba(255,255,255,0.02)',
@@ -45,7 +45,7 @@ export default function Footer() {
         whiteSpace: 'nowrap',
         pointerEvents: 'none',
         userSelect: 'none',
-        lineHeight: 1,
+        lineHeight: 0.75,
       }}>
         CLINIKR
       </div>
