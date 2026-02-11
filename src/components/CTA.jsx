@@ -1,125 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Shield, Zap, Clock } from 'lucide-react';
 
-/* Inline doctor illustration – clean flat vector style */
-function DoctorIllustration() {
-  return (
-    <svg viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', maxWidth: 380 }}>
-      {/* Background circle glow */}
-      <circle cx="200" cy="220" r="170" fill="url(#ctaGlow)" opacity="0.15" />
-
-      {/* Floating medical icons */}
-      <g className="cta-float-1">
-        <rect x="48" y="80" width="52" height="52" rx="14" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-        <path d="M74 96v20M64 106h20" stroke="#818CF8" strokeWidth="2.5" strokeLinecap="round" />
-      </g>
-      <g className="cta-float-2">
-        <rect x="300" y="60" width="52" height="52" rx="14" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-        <path d="M326 76l-8 16h16l-8 16" stroke="#A78BFA" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      </g>
-      <g className="cta-float-3">
-        <rect x="310" y="280" width="48" height="48" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-        <circle cx="334" cy="298" r="6" stroke="#6EE7B7" strokeWidth="2" fill="none" />
-        <path d="M334 308v4M330 310h8" stroke="#6EE7B7" strokeWidth="2" strokeLinecap="round" />
-      </g>
-
-      {/* Phone / app mockup in doctor's hand area */}
-      <g>
-        <rect x="158" y="180" width="84" height="150" rx="12" fill="#1E1B4B" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
-        <rect x="165" y="192" width="70" height="126" rx="6" fill="#0F0A2E" />
-        {/* App screen content */}
-        <rect x="172" y="200" width="56" height="8" rx="4" fill="#4F46E5" opacity="0.8" />
-        <rect x="172" y="216" width="40" height="5" rx="2.5" fill="rgba(255,255,255,0.2)" />
-        <rect x="172" y="228" width="56" height="32" rx="6" fill="rgba(79,70,229,0.2)" stroke="rgba(79,70,229,0.3)" strokeWidth="0.75" />
-        {/* Mini chart bars */}
-        <rect x="180" y="248" width="6" height="8" rx="1" fill="#818CF8" opacity="0.6" />
-        <rect x="190" y="244" width="6" height="12" rx="1" fill="#818CF8" opacity="0.8" />
-        <rect x="200" y="240" width="6" height="16" rx="1" fill="#818CF8" />
-        <rect x="210" y="242" width="6" height="14" rx="1" fill="#818CF8" opacity="0.7" />
-        {/* List items */}
-        <rect x="172" y="268" width="56" height="12" rx="4" fill="rgba(255,255,255,0.06)" />
-        <circle cx="178" cy="274" r="2.5" fill="#22C55E" />
-        <rect x="184" y="272" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.15)" />
-        <rect x="172" y="286" width="56" height="12" rx="4" fill="rgba(255,255,255,0.06)" />
-        <circle cx="178" cy="292" r="2.5" fill="#6366F1" />
-        <rect x="184" y="290" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.15)" />
-        <rect x="172" y="304" width="56" height="12" rx="4" fill="rgba(255,255,255,0.06)" />
-        <circle cx="178" cy="310" r="2.5" fill="#F59E0B" />
-        <rect x="184" y="308" width="34" height="3" rx="1.5" fill="rgba(255,255,255,0.15)" />
-        {/* Phone notch */}
-        <rect x="186" y="184" width="28" height="5" rx="2.5" fill="#0F0A2E" />
-      </g>
-
-      {/* Doctor figure – left side */}
-      {/* Head */}
-      <circle cx="130" cy="130" r="32" fill="#F8D4B0" />
-      {/* Hair */}
-      <path d="M98 125c0-20 14-36 32-36s32 16 32 36" fill="#1E293B" />
-      <ellipse cx="130" cy="118" rx="28" ry="8" fill="#1E293B" />
-      {/* Face details */}
-      <circle cx="120" cy="132" r="2.5" fill="#1E293B" />
-      <circle cx="140" cy="132" r="2.5" fill="#1E293B" />
-      <path d="M124 143c3 3 9 3 12 0" stroke="#C4956A" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-      {/* Glasses */}
-      <rect x="112" y="127" width="16" height="12" rx="6" stroke="#64748B" strokeWidth="1.5" fill="none" />
-      <rect x="132" y="127" width="16" height="12" rx="6" stroke="#64748B" strokeWidth="1.5" fill="none" />
-      <path d="M128 133h4" stroke="#64748B" strokeWidth="1.5" />
-
-      {/* Body – white coat */}
-      <path d="M90 170c0-8 8-16 20-20h40c12 4 20 12 20 20v100c0 6-4 10-10 10H100c-6 0-10-4-10-10V170z" fill="#F8FAFC" />
-      {/* Coat lapels */}
-      <path d="M130 150l-14 30v40" stroke="#E2E8F0" strokeWidth="1.5" fill="none" />
-      <path d="M130 150l14 30v40" stroke="#E2E8F0" strokeWidth="1.5" fill="none" />
-      {/* Coat buttons */}
-      <circle cx="130" cy="200" r="3" fill="#E2E8F0" />
-      <circle cx="130" cy="220" r="3" fill="#E2E8F0" />
-      {/* Collar */}
-      <path d="M112 155l18 10 18-10" stroke="#E2E8F0" strokeWidth="1.5" fill="none" />
-      {/* Inner shirt / tie */}
-      <path d="M126 165h8v30l-4 6-4-6v-30z" fill="#4F46E5" opacity="0.8" />
-      {/* Stethoscope */}
-      <path d="M108 170c-8 10-10 30-6 50" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <circle cx="100" cy="224" r="6" stroke="#94A3B8" strokeWidth="2" fill="#64748B" />
-      <circle cx="100" cy="224" r="2.5" fill="#94A3B8" />
-      {/* Name badge */}
-      <rect x="138" y="185" width="24" height="14" rx="3" fill="#EEF2FF" stroke="#C7D2FE" strokeWidth="0.75" />
-      <rect x="142" y="189" width="16" height="2" rx="1" fill="#4F46E5" opacity="0.4" />
-      <rect x="142" y="193" width="10" height="2" rx="1" fill="#4F46E5" opacity="0.25" />
-
-      {/* Right arm holding phone */}
-      <path d="M170 175c10 4 14 12 14 22v30" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
-      {/* Hand */}
-      <ellipse cx="176" cy="178" rx="10" ry="8" fill="#F8D4B0" />
-
-      {/* Left arm */}
-      <path d="M90 175c-8 6-12 16-10 28" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
-
-      {/* Legs */}
-      <rect x="105" y="278" width="22" height="70" rx="6" fill="#334155" />
-      <rect x="133" y="278" width="22" height="70" rx="6" fill="#334155" />
-      {/* Shoes */}
-      <path d="M103 342c0 6 4 10 10 10h18c4 0 6-3 6-6v-4H103z" fill="#1E293B" />
-      <path d="M131 342c0 6 4 10 10 10h18c4 0 6-3 6-6v-4H131z" fill="#1E293B" />
-
-      {/* Heartbeat line across */}
-      <path d="M30 390h80l8-14 8 28 8-28 8 14h228" stroke="url(#heartLine)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-
-      <defs>
-        <radialGradient id="ctaGlow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="#818CF8" />
-          <stop offset="100%" stopColor="#4F46E5" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="heartLine" x1="0" y1="0" x2="400" y2="0">
-          <stop offset="0%" stopColor="#818CF8" stopOpacity="0" />
-          <stop offset="30%" stopColor="#818CF8" />
-          <stop offset="70%" stopColor="#A78BFA" />
-          <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
-
 const trustItems = [
   { icon: Shield, text: 'HIPAA-ready security' },
   { icon: Zap, text: 'Setup in 2 minutes' },
@@ -301,7 +182,11 @@ export default function CTA() {
                 alignItems: 'center',
               }}
             >
-              <DoctorIllustration />
+              <img
+                src="/images/doctors.svg"
+                alt="Doctors using Clinikr"
+                style={{ width: '100%', maxWidth: 400, height: 'auto', filter: 'drop-shadow(0 8px 30px rgba(99,102,241,0.15))' }}
+              />
             </motion.div>
           </div>
         </motion.div>
@@ -336,21 +221,6 @@ export default function CTA() {
             margin-right: auto;
           }
         }
-        @keyframes ctaFloat1 {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        @keyframes ctaFloat2 {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-        @keyframes ctaFloat3 {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .cta-float-1 { animation: ctaFloat1 4s ease-in-out infinite; }
-        .cta-float-2 { animation: ctaFloat2 5s ease-in-out infinite 0.5s; }
-        .cta-float-3 { animation: ctaFloat3 4.5s ease-in-out infinite 1s; }
       `}</style>
     </section>
   );
