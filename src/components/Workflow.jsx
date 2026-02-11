@@ -39,10 +39,10 @@ export default function Workflow() {
 
         {/* Horizontal journey - cards with connectors */}
         <div style={{ position: 'relative' }}>
-          {/* Progress bar behind cards */}
+          {/* Progress bar behind cards — centered on 52px icon = top 25px */}
           <div style={{
             position: 'absolute',
-            top: 44,
+            top: 25,
             left: '5%',
             right: '5%',
             height: 3,
@@ -57,7 +57,7 @@ export default function Workflow() {
             transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }}
             style={{
               position: 'absolute',
-              top: 44,
+              top: 25,
               left: '5%',
               right: '5%',
               height: 3,
