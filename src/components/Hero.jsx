@@ -346,7 +346,7 @@ export default function Hero() {
 
         .hero-inner {
           position: relative; z-index: 1;
-          max-width: 1160px; width: 100%;
+          max-width: 1060px; width: 100%;
           display: flex; align-items: center;
           justify-content: space-between; gap: 48px;
         }
