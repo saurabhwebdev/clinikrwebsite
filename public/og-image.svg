@@ -1,0 +1,123 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0A1A"/>
+      <stop offset="100%" style="stop-color:#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#818CF8"/>
+      <stop offset="100%" style="stop-color:#C084FC"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow circles -->
+  <circle cx="200" cy="315" r="300" fill="rgba(79,70,229,0.08)"/>
+  <circle cx="1000" cy="200" r="250" fill="rgba(124,58,237,0.06)"/>
+
+  <!-- Logo circle -->
+  <circle cx="100" cy="260" r="32" fill="rgba(79,70,229,0.2)" stroke="rgba(129,140,248,0.3)" stroke-width="1"/>
+  <text x="100" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#818CF8">C</text>
+
+  <!-- Brand name -->
+  <text x="148" y="270" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#F8FAFC" letter-spacing="0.5">Clinikr</text>
+
+  <!-- Main headline -->
+  <text x="80" y="340" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="#F8FAFC" letter-spacing="-1">Your entire clinic,</text>
+  <text x="80" y="405" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="url(#accent)" letter-spacing="-1">one app.</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="455" font-family="Arial, sans-serif" font-size="18" fill="#94A3B8">Patients, Appointments, EMR, Billing, POS, Inventory &amp; Analytics</text>
+  <text x="80" y="480" font-family="Arial, sans-serif" font-size="18" fill="#94A3B8">— all beautifully connected, all in your pocket.</text>
+
+  <!-- CTA pill -->
+  <rect x="80" y="510" width="180" height="44" rx="12" fill="url(#btn)"/>
+  <text x="170" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Free Forever</text>
+
+  <!-- Trust badges -->
+  <text x="285" y="538" font-family="Arial, sans-serif" font-size="13" fill="#64748B" font-weight="500">Android &amp; iOS  •  Setup in 2 min  •  GST Compliant</text>
+
+  <!-- Phone mockup (right side) -->
+  <rect x="780" y="80" width="240" height="480" rx="32" fill="#FFFFFF" opacity="0.95"/>
+  <rect x="780" y="80" width="240" height="480" rx="32" fill="none" stroke="rgba(129,140,248,0.2)" stroke-width="2"/>
+
+  <!-- Phone notch -->
+  <rect x="862" y="88" width="76" height="22" rx="11" fill="#1E293B"/>
+
+  <!-- Phone status bar -->
+  <text x="800" y="128" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#1E293B">9:41</text>
+
+  <!-- Phone header -->
+  <text x="800" y="160" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8" font-weight="500">Good morning,</text>
+  <text x="800" y="178" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#1E293B">Dr. Sharma</text>
+
+  <!-- Avatar -->
+  <rect x="972" y="148" width="30" height="30" rx="8" fill="url(#btn)"/>
+  <text x="987" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">DS</text>
+
+  <!-- Stats cards -->
+  <rect x="796" y="195" width="66" height="48" rx="8" fill="#F8FAFC"/>
+  <text x="829" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#4F46E5">12</text>
+  <text x="829" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94A3B8" font-weight="500">Today</text>
+
+  <rect x="868" y="195" width="66" height="48" rx="8" fill="#F8FAFC"/>
+  <text x="901" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#F59E0B">3</text>
+  <text x="901" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94A3B8" font-weight="500">Waiting</text>
+
+  <rect x="940" y="195" width="66" height="48" rx="8" fill="#F8FAFC"/>
+  <text x="973" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#22C55E">8</text>
+  <text x="973" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94A3B8" font-weight="500">Done</text>
+
+  <!-- Section label -->
+  <text x="800" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1E293B">Upcoming</text>
+
+  <!-- Patient rows -->
+  <rect x="796" y="280" width="210" height="40" rx="8" fill="#EEF2FF" stroke="rgba(99,102,241,0.12)" stroke-width="1"/>
+  <circle cx="814" cy="300" r="12" fill="rgba(34,197,94,0.1)"/>
+  <text x="814" y="304" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#22C55E">RS</text>
+  <text x="834" y="296" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#1E293B">Rahul Sharma</text>
+  <text x="834" y="308" font-family="Arial, sans-serif" font-size="7" fill="#94A3B8">10:30 AM</text>
+  <rect x="955" y="292" width="42" height="16" rx="4" fill="rgba(34,197,94,0.1)"/>
+  <text x="976" y="303" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="600" fill="#22C55E">Checked</text>
+
+  <rect x="796" y="326" width="210" height="40" rx="8" fill="#F8FAFC"/>
+  <circle cx="814" cy="346" r="12" fill="rgba(245,158,11,0.1)"/>
+  <text x="814" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#F59E0B">PS</text>
+  <text x="834" y="342" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#1E293B">Priya Singh</text>
+  <text x="834" y="354" font-family="Arial, sans-serif" font-size="7" fill="#94A3B8">11:00 AM</text>
+  <rect x="955" y="338" width="42" height="16" rx="4" fill="rgba(245,158,11,0.1)"/>
+  <text x="976" y="349" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="600" fill="#F59E0B">Waiting</text>
+
+  <rect x="796" y="372" width="210" height="40" rx="8" fill="#F8FAFC"/>
+  <circle cx="814" cy="392" r="12" fill="rgba(99,102,241,0.1)"/>
+  <text x="814" y="396" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#6366F1">AP</text>
+  <text x="834" y="388" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#1E293B">Amit Patel</text>
+  <text x="834" y="400" font-family="Arial, sans-serif" font-size="7" fill="#94A3B8">11:30 AM</text>
+  <rect x="949" y="384" width="50" height="16" rx="4" fill="rgba(99,102,241,0.1)"/>
+  <text x="974" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="600" fill="#6366F1">Scheduled</text>
+
+  <!-- Phone bottom nav -->
+  <line x1="796" y1="498" x2="1006" y2="498" stroke="#F1F5F9" stroke-width="1"/>
+  <circle cx="840" cy="520" r="4" fill="#4F46E5"/>
+  <circle cx="880" cy="520" r="4" fill="#CBD5E1"/>
+  <circle cx="920" cy="520" r="4" fill="#CBD5E1"/>
+  <circle cx="960" cy="520" r="4" fill="#CBD5E1"/>
+
+  <!-- Domain -->
+  <text x="80" y="600" font-family="Arial, sans-serif" font-size="14" fill="#64748B" font-weight="600">clinikr.xyz</text>
+
+  <!-- Decorative border line at bottom -->
+  <rect x="0" y="624" width="1200" height="6" fill="url(#accent)"/>
+</svg>

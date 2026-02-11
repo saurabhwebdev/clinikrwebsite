@@ -1,4 +1,5 @@
 import { FileText, CheckCircle2, AlertTriangle, Scale, Ban, RefreshCw, Mail } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const sections = [
   {
@@ -66,6 +67,7 @@ const sections = [
 export default function Terms() {
   return (
     <div style={{ paddingTop: 100 }}>
+      <SEO title="Terms of Service" description="Read the terms and conditions for using Clinikr, the all-in-one clinic management app for healthcare professionals." path="/terms" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>

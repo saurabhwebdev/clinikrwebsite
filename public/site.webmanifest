@@ -1,0 +1,17 @@
+{
+  "name": "Clinikr — Clinic Management App",
+  "short_name": "Clinikr",
+  "description": "All-in-one clinic management app for doctors and healthcare professionals.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFBFF",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

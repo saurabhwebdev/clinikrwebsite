@@ -1,4 +1,5 @@
 import { HelpCircle, BookOpen, MessageCircle, Mail, Clock, Zap, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const faqs = [
   {
@@ -57,6 +58,7 @@ const channels = [
 export default function Support() {
   return (
     <div style={{ paddingTop: 100 }}>
+      <SEO title="Support & Help" description="Get help with Clinikr. Browse FAQs, contact our support team, and find answers to common questions about clinic management." path="/support" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>

@@ -1,4 +1,5 @@
 import { Shield, Eye, Database, Lock, UserCheck, Trash2, Mail } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const sections = [
   {
@@ -56,6 +57,7 @@ const sections = [
 export default function Privacy() {
   return (
     <div style={{ paddingTop: 100 }}>
+      <SEO title="Privacy Policy" description="Learn how Clinikr collects, uses, and protects your clinic and patient data. Your privacy and data security are our top priority." path="/privacy" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>

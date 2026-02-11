@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import WaveDivider from '../components/WaveDivider'
 import StoryIntro from '../components/StoryIntro'
@@ -18,6 +19,7 @@ import CTA from '../components/CTA'
 export default function Home() {
   return (
     <>
+      <SEO />
       <Hero />
       <WaveDivider from="var(--bg)" to="var(--surface)" />
       <StoryIntro />

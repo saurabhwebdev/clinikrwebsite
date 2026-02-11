@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'support@clinikr.xyz', href: 'mailto:support@clinikr.xyz' },
@@ -17,6 +18,7 @@ export default function Contact() {
 
   return (
     <div style={{ paddingTop: 100 }}>
+      <SEO title="Contact Us" description="Get in touch with the Clinikr team. We'd love to hear from you — reach out for support, feedback, or partnership inquiries." path="/contact" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
