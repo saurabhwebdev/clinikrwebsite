@@ -40,7 +40,7 @@ export default function Footer() {
         transform: 'translate(-50%, -50%)',
         fontSize: 'clamp(120px, 18vw, 280px)',
         fontWeight: 900,
-        color: 'rgba(255,255,255,0.03)',
+        color: 'rgba(255,255,255,0.02)',
         letterSpacing: '0.05em',
         whiteSpace: 'nowrap',
         pointerEvents: 'none',
