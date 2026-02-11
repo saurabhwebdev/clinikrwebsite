@@ -3,14 +3,37 @@ import { useRef } from 'react';
 import {
   Stethoscope, Calendar, FileText, BarChart3,
   Check, Clock, TrendingUp, ArrowRight,
+  Bell, UserPlus, CreditCard,
 } from 'lucide-react';
 
-/* ── Phone mockup data ───────────────────────────────── */
+/* ── phone UI data ───────────────────────────────────── */
 const mockPatients = [
   { name: 'Rahul Sharma',  time: '10:30 AM', status: 'Checked In', color: '#22C55E' },
   { name: 'Priya Singh',   time: '11:00 AM', status: 'Waiting',    color: '#F59E0B' },
   { name: 'Amit Patel',    time: '11:30 AM', status: 'Scheduled',  color: '#6366F1' },
   { name: 'Neha Gupta',    time: '12:00 PM', status: 'Scheduled',  color: '#6366F1' },
+];
+
+/* ── notification cards that float around phone ──────── */
+const floatingCards = [
+  {
+    Icon: Bell, label: 'New Appointment',
+    sub: 'Priya Singh — 11:00 AM',
+    color: '#4F46E5',
+    x: -110, y: 60, rotate: -4, delay: 0.8,
+  },
+  {
+    Icon: UserPlus, label: '+3 Patients Today',
+    sub: 'Walk-in registrations',
+    color: '#22C55E',
+    x: 80, y: 180, rotate: 3, delay: 1.1,
+  },
+  {
+    Icon: CreditCard, label: 'Payment Received',
+    sub: '₹1,200 — Consultation',
+    color: '#F59E0B',
+    x: -90, y: 340, rotate: -2, delay: 1.4,
+  },
 ];
 
 export default function Hero() {
@@ -20,19 +43,20 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const phoneY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const phoneY = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="hero-section"
-    >
-      {/* ── background layers ────────────────────────── */}
+    <section ref={sectionRef} className="hero-section">
+      {/* ── background ───────────────────────────────── */}
       <div className="hero-dot-grid" />
+      <div className="hero-ring hero-ring-1" />
+      <div className="hero-ring hero-ring-2" />
       <div className="hero-blob hero-blob-1" />
       <div className="hero-blob hero-blob-2" />
+      <div className="hero-blob hero-blob-3" />
+      <div className="hero-fade-bottom" />
 
-      {/* ── two-column layout ────────────────────────── */}
+      {/* ── layout ───────────────────────────────────── */}
       <div className="hero-inner">
 
         {/* LEFT — copy ──────────────────────────────── */}
@@ -42,19 +66,21 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.6 }}
           >
-            <div className="section-label">
-              <Stethoscope size={14} />
+            <div className="hero-badge">
+              <span className="hero-badge-dot" />
+              <Stethoscope size={13} />
               Built for modern clinics
             </div>
           </motion.div>
 
           <motion.h1
             className="hero-headline"
-            initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
+            initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             Your entire clinic,{' '}
+            <br />
             <span className="hero-gradient-text">one app.</span>
           </motion.h1>
 
@@ -64,8 +90,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Patients. Appointments. Records. Billing. POS.
-            Inventory. Lab orders — all beautifully connected,
+            Patients, appointments, medical records, billing, POS,
+            inventory, and lab orders — all beautifully connected,
             all in your pocket.
           </motion.p>
 
@@ -76,8 +102,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <a href="#cta" className="hero-cta-primary">
+              <span className="hero-cta-shimmer" />
               Start Free
-              <ArrowRight size={16} style={{ marginLeft: 6 }} />
+              <ArrowRight size={16} style={{ marginLeft: 8 }} />
             </a>
             <a href="#features" className="hero-cta-secondary">
               Explore Features
@@ -88,7 +115,7 @@ export default function Hero() {
             className="hero-trust"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
           >
             {[
               { icon: Check,       text: 'Free Forever' },
@@ -96,110 +123,130 @@ export default function Hero() {
               { icon: TrendingUp,  text: 'GST Compliant' },
             ].map(({ icon: Ic, text }) => (
               <span key={text} className="hero-trust-item">
-                <Ic size={13} color="var(--primary)" />
+                <Ic size={13} />
                 {text}
               </span>
             ))}
           </motion.div>
         </div>
 
-        {/* RIGHT — phone mockup ─────────────────────── */}
+        {/* RIGHT — phone + floating cards ────────────── */}
         <motion.div
           className="hero-phone-col"
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{ y: phoneY }}
         >
+          {/* glow */}
           <div className="hero-phone-glow" />
 
-          <div className="hero-phone">
-            {/* dynamic island */}
-            <div className="hero-phone-island" />
+          {/* floating notification cards */}
+          {floatingCards.map(({ Icon, label, sub, color, x, y, rotate, delay }) => (
+            <motion.div
+              key={label}
+              className="hero-float-card"
+              initial={{ opacity: 0, scale: 0.8, x: x * 0.5, y: y }}
+              animate={{ opacity: 1, scale: 1, x, y, rotate }}
+              transition={{ delay, duration: 0.7, ease: 'backOut' }}
+            >
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: delay * 0.5 }}
+                className="hero-float-card-inner"
+              >
+                <div className="hero-float-icon" style={{ background: `${color}12`, color }}>
+                  <Icon size={13} />
+                </div>
+                <div>
+                  <div className="hero-float-label">{label}</div>
+                  <div className="hero-float-sub">{sub}</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
 
-            {/* status bar */}
-            <div className="hero-phone-statusbar">
-              <span>9:41</span>
-              <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                <div className="hero-phone-battery">
-                  <div className="hero-phone-battery-fill" />
+          {/* phone frame */}
+          <div className="hero-phone-frame">
+            <div className="hero-phone">
+              <div className="hero-phone-island" />
+
+              <div className="hero-phone-statusbar">
+                <span>9:41</span>
+                <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+                  <div className="hero-phone-battery">
+                    <div className="hero-phone-battery-fill" />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* app header */}
-            <div className="hero-phone-header">
-              <div>
-                <div style={{ fontSize: '0.6rem', color: '#94A3B8', fontWeight: 500 }}>
-                  Good morning,
+              <div className="hero-phone-header">
+                <div>
+                  <div style={{ fontSize: '0.58rem', color: '#94A3B8', fontWeight: 500 }}>Good morning,</div>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#1E293B', letterSpacing: '-0.02em' }}>
+                    Dr. Sharma
+                  </div>
                 </div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#1E293B', letterSpacing: '-0.02em' }}>
-                  Dr. Sharma
-                </div>
+                <div className="hero-phone-avatar">DS</div>
               </div>
-              <div className="hero-phone-avatar">DS</div>
-            </div>
 
-            {/* stat cards */}
-            <div className="hero-phone-stats">
-              {[
-                { n: '12', l: 'Today',   c: '#4F46E5' },
-                { n: '3',  l: 'Waiting', c: '#F59E0B' },
-                { n: '8',  l: 'Done',    c: '#22C55E' },
-              ].map(s => (
-                <div key={s.l} className="hero-phone-stat">
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: s.c }}>{s.n}</div>
-                  <div style={{ fontSize: '0.55rem', color: '#94A3B8', fontWeight: 500, marginTop: 1 }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* section label */}
-            <div style={{ padding: '4px 18px 8px', fontSize: '0.68rem', fontWeight: 700, color: '#1E293B' }}>
-              Upcoming
-            </div>
-
-            {/* patient rows */}
-            <div className="hero-phone-list">
-              {mockPatients.map((p, i) => (
-                <motion.div
-                  key={p.name}
-                  className="hero-phone-row"
-                  initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9 + i * 0.1, duration: 0.35 }}
-                  style={{
-                    background: i === 0 ? '#EEF2FF' : '#F8FAFC',
-                    border: i === 0 ? '1px solid rgba(99,102,241,0.15)' : '1px solid transparent',
-                  }}
-                >
-                  <div className="hero-phone-row-avatar" style={{ background: `${p.color}15`, color: p.color }}>
-                    {p.name.split(' ').map(w => w[0]).join('')}
+              <div className="hero-phone-stats">
+                {[
+                  { n: '12', l: 'Today',   c: '#4F46E5' },
+                  { n: '3',  l: 'Waiting', c: '#F59E0B' },
+                  { n: '8',  l: 'Done',    c: '#22C55E' },
+                ].map(s => (
+                  <div key={s.l} className="hero-phone-stat">
+                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: s.c }}>{s.n}</div>
+                    <div style={{ fontSize: '0.52rem', color: '#94A3B8', fontWeight: 500, marginTop: 1 }}>{s.l}</div>
                   </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '0.68rem', fontWeight: 600, color: '#1E293B' }}>{p.name}</div>
-                    <div style={{ fontSize: '0.55rem', color: '#94A3B8' }}>{p.time}</div>
-                  </div>
-                  <span className="hero-phone-badge" style={{ background: `${p.color}10`, color: p.color }}>
-                    {p.status}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {/* bottom nav */}
-            <div className="hero-phone-nav">
-              {[
-                { Ic: Stethoscope, active: true },
-                { Ic: Calendar, active: false },
-                { Ic: FileText, active: false },
-                { Ic: BarChart3, active: false },
-              ].map(({ Ic, active }, i) => (
-                <div key={i} className="hero-phone-nav-item">
-                  <Ic size={17} color={active ? '#4F46E5' : '#CBD5E1'} />
-                  {active && <div className="hero-phone-nav-dot" />}
-                </div>
-              ))}
+              <div style={{ padding: '2px 16px 8px', fontSize: '0.66rem', fontWeight: 700, color: '#1E293B' }}>
+                Upcoming
+              </div>
+
+              <div className="hero-phone-list">
+                {mockPatients.map((p, i) => (
+                  <motion.div
+                    key={p.name}
+                    className="hero-phone-row"
+                    initial={{ opacity: 0, x: 14 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1 + i * 0.1, duration: 0.35 }}
+                    style={{
+                      background: i === 0 ? '#EEF2FF' : '#F8FAFC',
+                      border: i === 0 ? '1px solid rgba(99,102,241,0.15)' : '1px solid transparent',
+                    }}
+                  >
+                    <div className="hero-phone-row-avatar" style={{ background: `${p.color}15`, color: p.color }}>
+                      {p.name.split(' ').map(w => w[0]).join('')}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '0.66rem', fontWeight: 600, color: '#1E293B' }}>{p.name}</div>
+                      <div style={{ fontSize: '0.52rem', color: '#94A3B8' }}>{p.time}</div>
+                    </div>
+                    <span className="hero-phone-badge" style={{ background: `${p.color}10`, color: p.color }}>
+                      {p.status}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="hero-phone-nav">
+                {[
+                  { Ic: Stethoscope, active: true },
+                  { Ic: Calendar, active: false },
+                  { Ic: FileText, active: false },
+                  { Ic: BarChart3, active: false },
+                ].map(({ Ic, active }, i) => (
+                  <div key={i} className="hero-phone-nav-item">
+                    <Ic size={16} color={active ? '#4F46E5' : '#CBD5E1'} />
+                    {active && <div className="hero-phone-nav-dot" />}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
@@ -214,18 +261,33 @@ export default function Hero() {
           justify-content: center;
           position: relative;
           overflow: hidden;
-          padding: 120px 24px 80px;
+          padding: 130px 24px 100px;
         }
 
         /* ── background ─────────────────────── */
         .hero-dot-grid {
-          position: absolute;
-          inset: 0;
-          background-image: radial-gradient(circle, rgba(79,70,229,0.06) 1px, transparent 1px);
+          position: absolute; inset: 0;
+          background-image: radial-gradient(circle, rgba(79,70,229,0.05) 1px, transparent 1px);
           background-size: 32px 32px;
           pointer-events: none;
-          mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 20%, transparent 70%);
-          -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 20%, transparent 70%);
+          mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, black 15%, transparent 68%);
+          -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, black 15%, transparent 68%);
+        }
+        .hero-ring {
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid rgba(79,70,229,0.06);
+          pointer-events: none;
+        }
+        .hero-ring-1 {
+          width: 600px; height: 600px;
+          top: 50%; right: -100px;
+          transform: translateY(-50%);
+        }
+        .hero-ring-2 {
+          width: 900px; height: 900px;
+          top: 50%; right: -250px;
+          transform: translateY(-50%);
         }
         .hero-blob {
           position: absolute;
@@ -234,54 +296,89 @@ export default function Hero() {
           pointer-events: none;
         }
         .hero-blob-1 {
-          width: 480px; height: 480px;
-          top: -8%; right: 5%;
+          width: 450px; height: 450px;
+          top: -5%; right: 10%;
           background: radial-gradient(circle, rgba(79,70,229,0.10) 0%, transparent 70%);
           animation: blobFloat 14s ease-in-out infinite alternate;
         }
         .hero-blob-2 {
-          width: 380px; height: 380px;
-          bottom: 0; left: 5%;
+          width: 350px; height: 350px;
+          bottom: 5%; left: 8%;
           background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
           animation: blobFloat 11s ease-in-out infinite alternate-reverse;
         }
+        .hero-blob-3 {
+          width: 250px; height: 250px;
+          top: 60%; right: 30%;
+          background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%);
+          animation: blobFloat 16s ease-in-out infinite alternate;
+        }
         @keyframes blobFloat {
           0%   { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(-20px, 15px) scale(1.06); }
+          100% { transform: translate(-20px, 12px) scale(1.05); }
+        }
+        .hero-fade-bottom {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 120px;
+          background: linear-gradient(to bottom, transparent, var(--bg));
+          pointer-events: none;
         }
 
         /* ── layout ─────────────────────────── */
         .hero-inner {
-          position: relative;
-          z-index: 1;
-          max-width: 1140px;
-          width: 100%;
+          position: relative; z-index: 1;
+          max-width: 1160px; width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 60px;
+          gap: 48px;
         }
 
-        /* ── left column — copy ─────────────── */
+        /* ── badge ──────────────────────────── */
+        .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--primary-soft);
+          color: var(--primary);
+          font-size: 0.78rem;
+          font-weight: 600;
+          padding: 7px 16px 7px 12px;
+          border-radius: 100px;
+          letter-spacing: 0.02em;
+        }
+        .hero-badge-dot {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: #22C55E;
+          box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+          animation: dotPulse 2s ease-in-out infinite;
+        }
+        @keyframes dotPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+          50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+        }
+
+        /* ── copy ───────────────────────────── */
         .hero-copy {
           flex: 1;
           max-width: 540px;
         }
         .hero-headline {
-          font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+          font-size: clamp(2.4rem, 5.5vw, 3.75rem);
           font-weight: 900;
-          line-height: 1.08;
+          line-height: 1.06;
           letter-spacing: -0.035em;
-          margin-top: 20px;
-          margin-bottom: 20px;
+          margin: 24px 0 22px;
           color: var(--text);
         }
         .hero-subtitle {
-          font-size: clamp(1rem, 1.8vw, 1.15rem);
+          font-size: clamp(1rem, 1.7vw, 1.12rem);
           color: var(--text-secondary);
-          line-height: 1.7;
-          margin-bottom: 32px;
-          max-width: 460px;
+          line-height: 1.75;
+          margin-bottom: 36px;
+          max-width: 440px;
         }
         .hero-gradient-text {
           background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 40%, #4F46E5 80%, #7C3AED 100%);
@@ -298,37 +395,48 @@ export default function Hero() {
 
         /* ── CTAs ───────────────────────────── */
         .hero-ctas {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-          margin-bottom: 28px;
+          display: flex; gap: 12px;
+          flex-wrap: wrap; margin-bottom: 32px;
         }
         .hero-cta-primary {
-          display: inline-flex;
-          align-items: center;
-          padding: 13px 30px;
+          display: inline-flex; align-items: center;
+          padding: 14px 32px;
           background: linear-gradient(135deg, #4F46E5, #6366F1);
-          color: #fff;
-          border-radius: 12px;
-          font-size: 0.92rem;
-          font-weight: 700;
+          color: #fff; border-radius: 13px;
+          font-size: 0.93rem; font-weight: 700;
           text-decoration: none;
           transition: all 0.25s ease;
           box-shadow: 0 4px 18px rgba(79,70,229,0.25);
+          position: relative; overflow: hidden;
         }
         .hero-cta-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(79,70,229,0.35);
+          box-shadow: 0 8px 30px rgba(79,70,229,0.35);
+        }
+        .hero-cta-shimmer {
+          position: absolute; inset: 0;
+          background: linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255,255,255,0.15) 45%,
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0.15) 55%,
+            transparent 80%
+          );
+          transform: translateX(-100%);
+          animation: ctaShimmer 3s ease-in-out infinite;
+          pointer-events: none;
+        }
+        @keyframes ctaShimmer {
+          0%   { transform: translateX(-100%); }
+          60%  { transform: translateX(100%); }
+          100% { transform: translateX(100%); }
         }
         .hero-cta-secondary {
-          display: inline-flex;
-          align-items: center;
-          padding: 13px 30px;
-          background: var(--surface);
-          color: var(--text);
-          border-radius: 12px;
-          font-size: 0.92rem;
-          font-weight: 600;
+          display: inline-flex; align-items: center;
+          padding: 14px 32px;
+          background: var(--surface); color: var(--text);
+          border-radius: 13px; font-size: 0.93rem; font-weight: 600;
           text-decoration: none;
           border: 1px solid var(--border);
           transition: all 0.25s ease;
@@ -341,62 +449,89 @@ export default function Hero() {
 
         /* ── trust ──────────────────────────── */
         .hero-trust {
-          display: flex;
-          gap: 18px;
-          flex-wrap: wrap;
+          display: flex; gap: 20px; flex-wrap: wrap;
         }
         .hero-trust-item {
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          font-size: 0.78rem;
-          font-weight: 500;
-          color: var(--text-secondary);
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 0.8rem; font-weight: 500;
+          color: var(--text-muted);
         }
+        .hero-trust-item svg { color: var(--primary); }
 
-        /* ── right column — phone ───────────── */
+        /* ── phone column ───────────────────── */
         .hero-phone-col {
-          position: relative;
-          flex-shrink: 0;
+          position: relative; flex-shrink: 0;
         }
         .hero-phone-glow {
           position: absolute;
-          width: 300px; height: 300px;
+          width: 340px; height: 400px;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
-          background: radial-gradient(circle, rgba(79,70,229,0.14) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(79,70,229,0.12) 0%, rgba(124,58,237,0.04) 50%, transparent 70%);
           filter: blur(50px);
           pointer-events: none;
         }
+
+        /* floating cards */
+        .hero-float-card {
+          position: absolute;
+          z-index: 3;
+          pointer-events: none;
+        }
+        .hero-float-card-inner {
+          display: flex; align-items: center; gap: 10px;
+          padding: 10px 14px;
+          background: rgba(255,255,255,0.85);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.7);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+          white-space: nowrap;
+        }
+        .hero-float-icon {
+          width: 30px; height: 30px;
+          border-radius: 8px;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        }
+        .hero-float-label {
+          font-size: 0.72rem; font-weight: 700; color: #1E293B;
+        }
+        .hero-float-sub {
+          font-size: 0.6rem; color: #94A3B8; margin-top: 1px;
+        }
+
+        /* phone frame (outer ring) */
+        .hero-phone-frame {
+          position: relative;
+          padding: 3px;
+          border-radius: 40px;
+          background: linear-gradient(160deg, rgba(79,70,229,0.15), rgba(124,58,237,0.08), rgba(226,232,240,0.5));
+        }
         .hero-phone {
           position: relative;
-          width: 270px;
-          height: 540px;
+          width: 270px; height: 540px;
           background: #fff;
-          border-radius: 36px;
-          border: 3px solid #E2E8F0;
-          box-shadow:
-            0 30px 80px rgba(0,0,0,0.07),
-            0 8px 20px rgba(79,70,229,0.05);
+          border-radius: 38px;
           overflow: hidden;
+          box-shadow:
+            0 30px 80px rgba(0,0,0,0.06),
+            0 4px 16px rgba(79,70,229,0.04);
         }
         .hero-phone-island {
           position: absolute;
           top: 8px; left: 50%;
           transform: translateX(-50%);
-          width: 80px; height: 22px;
+          width: 76px; height: 22px;
           background: #1E293B;
           border-radius: 20px;
           z-index: 10;
         }
         .hero-phone-statusbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+          display: flex; justify-content: space-between; align-items: center;
           padding: 12px 20px 6px;
-          font-size: 0.65rem;
-          font-weight: 600;
-          color: #1E293B;
+          font-size: 0.63rem; font-weight: 600; color: #1E293B;
         }
         .hero-phone-battery {
           width: 18px; height: 9px;
@@ -406,122 +541,83 @@ export default function Hero() {
         }
         .hero-phone-battery::after {
           content: '';
-          position: absolute;
-          right: -4px; top: 2px;
+          position: absolute; right: -4px; top: 2px;
           width: 2px; height: 4px;
           background: #1E293B;
           border-radius: 0 1px 1px 0;
         }
         .hero-phone-battery-fill {
-          position: absolute;
-          inset: 1.5px;
-          background: #22C55E;
-          border-radius: 1px;
+          position: absolute; inset: 1.5px;
+          background: #22C55E; border-radius: 1px;
         }
         .hero-phone-header {
-          padding: 10px 18px 14px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          padding: 8px 16px 12px;
+          display: flex; align-items: center; justify-content: space-between;
         }
         .hero-phone-avatar {
-          width: 34px; height: 34px;
-          border-radius: 10px;
+          width: 32px; height: 32px; border-radius: 9px;
           background: linear-gradient(135deg, #4F46E5, #7C3AED);
           display: flex; align-items: center; justify-content: center;
-          color: #fff; font-size: 0.75rem; font-weight: 700;
+          color: #fff; font-size: 0.7rem; font-weight: 700;
         }
         .hero-phone-stats {
-          display: flex; gap: 6px;
-          padding: 0 14px 14px;
+          display: flex; gap: 5px; padding: 0 12px 12px;
         }
         .hero-phone-stat {
-          flex: 1;
-          padding: 10px 8px;
-          border-radius: 10px;
-          background: #F8FAFC;
+          flex: 1; padding: 9px 6px;
+          border-radius: 10px; background: #F8FAFC;
           text-align: center;
         }
         .hero-phone-list {
-          padding: 0 14px;
-          display: flex;
-          flex-direction: column;
-          gap: 5px;
+          padding: 0 12px;
+          display: flex; flex-direction: column; gap: 4px;
         }
         .hero-phone-row {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 9px 10px;
-          border-radius: 10px;
+          display: flex; align-items: center; gap: 8px;
+          padding: 8px 10px; border-radius: 10px;
         }
         .hero-phone-row-avatar {
-          width: 28px; height: 28px;
-          border-radius: 7px;
+          width: 26px; height: 26px; border-radius: 7px;
           display: flex; align-items: center; justify-content: center;
-          font-size: 0.6rem; font-weight: 700;
-          flex-shrink: 0;
+          font-size: 0.56rem; font-weight: 700; flex-shrink: 0;
         }
         .hero-phone-badge {
-          font-size: 0.5rem;
-          font-weight: 600;
-          padding: 2px 7px;
-          border-radius: 5px;
-          flex-shrink: 0;
+          font-size: 0.48rem; font-weight: 600;
+          padding: 2px 6px; border-radius: 5px; flex-shrink: 0;
         }
         .hero-phone-nav {
-          position: absolute;
-          bottom: 0; left: 0; right: 0;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
+          position: absolute; bottom: 0; left: 0; right: 0;
+          display: flex; justify-content: space-around; align-items: center;
           padding: 8px 8px 16px;
-          border-top: 1px solid #F1F5F9;
-          background: #fff;
+          border-top: 1px solid #F1F5F9; background: #fff;
         }
         .hero-phone-nav-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
+          display: flex; flex-direction: column; align-items: center; gap: 2px;
         }
         .hero-phone-nav-dot {
-          width: 4px; height: 4px;
-          border-radius: 2px;
-          background: #4F46E5;
+          width: 4px; height: 4px; border-radius: 2px; background: #4F46E5;
         }
 
         /* ── responsive ─────────────────────── */
-        @media (max-width: 900px) {
-          .hero-section {
-            padding: 110px 20px 60px;
-          }
+        @media (max-width: 960px) {
+          .hero-section { padding: 110px 20px 80px; }
           .hero-inner {
-            flex-direction: column;
-            text-align: center;
-            gap: 48px;
+            flex-direction: column; text-align: center; gap: 56px;
           }
           .hero-copy {
             max-width: 520px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
           }
-          .hero-subtitle {
-            max-width: 420px;
-          }
-          .hero-ctas {
-            justify-content: center;
-          }
-          .hero-trust {
-            justify-content: center;
-          }
+          .hero-subtitle { max-width: 420px; }
+          .hero-ctas { justify-content: center; }
+          .hero-trust { justify-content: center; }
+          .hero-headline br { display: none; }
+          .hero-float-card { display: none; }
+          .hero-ring { display: none; }
         }
         @media (max-width: 480px) {
-          .hero-phone {
-            width: 240px;
-            height: 480px;
-          }
+          .hero-phone { width: 240px; height: 480px; }
+          .hero-phone-frame { border-radius: 36px; }
         }
       `}</style>
     </section>
