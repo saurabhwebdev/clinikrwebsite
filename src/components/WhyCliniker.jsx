@@ -89,7 +89,7 @@ export default function WhyCliniker() {
           transition={{ delay: 0.3 }}
           style={{
             display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px 20px',
-            padding: '28px 32px',
+            padding: 'clamp(16px, 3vw, 28px) clamp(16px, 3vw, 32px)',
             background: 'var(--surface)',
             borderRadius: 16,
             border: '1px solid var(--border)',

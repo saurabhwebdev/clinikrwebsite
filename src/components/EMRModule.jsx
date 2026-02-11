@@ -41,7 +41,7 @@ export default function EMRModule() {
               every diagnosis, every prescription.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }} className="grid-2">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }} className="emr-features">
               {emrFeatures.map(({ icon: Icon, title, desc, color }, i) => (
                 <motion.div
                   key={title}
@@ -98,7 +98,7 @@ export default function EMRModule() {
               </div>
 
               {/* Vitals bar */}
-              <div style={{
+              <div className="emr-vitals" style={{
                 display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginBottom: 20,
               }}>
                 {vitals.map(({ icon: Icon, label, value, unit, color }) => (
@@ -165,6 +165,12 @@ export default function EMRModule() {
           </motion.div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .emr-features { grid-template-columns: 1fr !important; }
+          .emr-vitals { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+      `}</style>
     </section>
   );
 }

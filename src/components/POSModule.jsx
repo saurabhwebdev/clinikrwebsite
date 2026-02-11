@@ -76,10 +76,10 @@ export default function POSModule() {
               </div>
 
               {/* Payment methods */}
-              <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
+              <div className="pos-payments" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginTop: 16 }}>
                 {payments.map(({ icon: Icon, label, color }) => (
                   <div key={label} style={{
-                    flex: 1, padding: '10px 6px', borderRadius: 10,
+                    padding: '10px 6px', borderRadius: 10,
                     background: `${color}08`, border: `1px solid ${color}15`,
                     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
                   }}>
@@ -146,6 +146,11 @@ export default function POSModule() {
           </motion.div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 480px) {
+          .pos-payments { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+      `}</style>
     </section>
   );
 }

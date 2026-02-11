@@ -52,7 +52,7 @@ export default function StoryIntro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 64px)' }}
         >
           <div className="section-label" style={{ margin: '0 auto 16px' }}>
             The Problem

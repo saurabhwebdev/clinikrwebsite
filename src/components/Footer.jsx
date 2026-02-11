@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer style={{
       background: '#0F172A',
-      padding: '64px 24px 0',
+      padding: 'clamp(36px, 6vw, 64px) clamp(16px, 3vw, 24px) 0',
       color: '#CBD5E1',
     }}>
       <div style={{

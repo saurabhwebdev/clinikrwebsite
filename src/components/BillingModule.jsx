@@ -144,7 +144,7 @@ export default function BillingModule() {
 
               {/* Status flow */}
               <div style={{
-                display: 'flex', gap: 8, marginTop: 20, justifyContent: 'center',
+                display: 'flex', gap: 8, marginTop: 20, justifyContent: 'center', flexWrap: 'wrap',
               }}>
                 {invoiceStates.map(({ label, color, bg }, i) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>

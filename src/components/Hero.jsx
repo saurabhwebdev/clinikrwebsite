@@ -547,7 +547,7 @@ export default function Hero() {
 
         @media (max-width: 960px) {
           .hero-section { padding: 110px 20px 80px; }
-          .hero-inner { flex-direction: column; text-align: center; gap: 56px; }
+          .hero-inner { flex-direction: column; text-align: center; gap: 48px; }
           .hero-copy {
             max-width: 520px;
             display: flex; flex-direction: column; align-items: center;
@@ -557,10 +557,19 @@ export default function Hero() {
           .hero-trust { justify-content: center; }
           .hero-headline br { display: none; }
           .hero-ring { display: none; }
+          .hero-blob { display: none; }
+        }
+        @media (max-width: 640px) {
+          .hero-section { padding: 100px 16px 60px; min-height: auto; }
+          .hero-inner { gap: 36px; }
+          .hero-phone { width: 250px; height: 500px; }
+          .hero-phone-frame { border-radius: 36px; }
+          .hero-cta-primary, .hero-cta-secondary { padding: 12px 24px; font-size: 0.88rem; }
+          .hero-trust { gap: 12px; }
         }
         @media (max-width: 480px) {
-          .hero-phone { width: 240px; height: 480px; }
-          .hero-phone-frame { border-radius: 36px; }
+          .hero-phone { width: 230px; height: 460px; }
+          .hero-phone-frame { border-radius: 34px; }
         }
       `}</style>
     </section>

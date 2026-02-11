@@ -90,7 +90,7 @@ export default function Workflow() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     textAlign: 'center',
-                    width: 120,
+                    minWidth: 0,
                   }}
                 >
                   {/* Circle node */}

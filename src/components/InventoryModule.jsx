@@ -83,7 +83,7 @@ export default function InventoryModule() {
               </div>
 
               {/* Stock summary */}
-              <div style={{
+              <div className="inv-summary" style={{
                 display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 20,
               }}>
                 {[

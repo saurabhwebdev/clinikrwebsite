@@ -148,6 +148,11 @@ export default function PatientModule() {
           </motion.div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .mock-card { padding: 20px !important; }
+        }
+      `}</style>
     </section>
   );
 }

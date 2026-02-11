@@ -53,7 +53,7 @@ export default function CTA() {
             </h2>
 
             <p style={{
-              fontSize: '1.1rem',
+              fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
               color: 'rgba(255,255,255,0.8)',
               lineHeight: 1.6,
               maxWidth: 550,
@@ -82,7 +82,7 @@ export default function CTA() {
 
             {/* Trust signals */}
             <div style={{
-              display: 'flex', gap: 32, justifyContent: 'center', marginTop: 40,
+              display: 'flex', gap: 'clamp(16px, 3vw, 32px)', justifyContent: 'center', marginTop: 40,
               flexWrap: 'wrap',
             }}>
               {[

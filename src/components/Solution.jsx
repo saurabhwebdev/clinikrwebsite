@@ -91,7 +91,7 @@ export default function Solution() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 64px)' }}
         >
           <div className="section-label" style={{ margin: '0 auto 16px' }}>
             <Sparkles size={14} /> The Solution
@@ -110,7 +110,7 @@ export default function Solution() {
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 16,
-          marginBottom: 64,
+          marginBottom: 'clamp(32px, 5vw, 64px)',
         }} className="bento-grid">
           {/* Featured modules — span 2 cols each */}
           {featured.map(({ icon: Icon, label, desc, color }, i) => (
@@ -271,7 +271,7 @@ export default function Solution() {
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: 24,
-            padding: '40px 32px',
+            padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px)',
             background: 'linear-gradient(135deg, rgba(79,70,229,0.04) 0%, rgba(124,58,237,0.04) 100%)',
             borderRadius: 20,
             border: '1px solid var(--border)',
