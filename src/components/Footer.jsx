@@ -38,11 +38,11 @@ export default function Footer() {
         alt=""
         style={{
           position: 'absolute',
-          right: '-30px',
-          bottom: '-50px',
+          right: '-10px',
+          bottom: '44px',
           width: 'clamp(200px, 22vw, 320px)',
           height: 'auto',
-          opacity: 0.12,
+          opacity: 0.8,
           pointerEvents: 'none',
         }}
       />
