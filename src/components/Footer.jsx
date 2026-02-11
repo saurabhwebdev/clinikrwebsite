@@ -42,7 +42,7 @@ export default function Footer() {
           bottom: '-50px',
           width: 'clamp(200px, 22vw, 320px)',
           height: 'auto',
-          opacity: 0.03,
+          opacity: 0.12,
           pointerEvents: 'none',
         }}
       />
