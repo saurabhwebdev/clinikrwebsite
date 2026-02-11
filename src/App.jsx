@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import WaveDivider from './components/WaveDivider'
 import StoryIntro from './components/StoryIntro'
 import Solution from './components/Solution'
 import PatientModule from './components/PatientModule'
@@ -22,7 +23,9 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <WaveDivider from="var(--bg)" to="var(--surface)" />
       <StoryIntro />
+      <WaveDivider from="var(--surface)" to="var(--bg)" />
       <Solution />
       <PatientModule />
       <AppointmentsModule />
@@ -35,6 +38,7 @@ function App() {
       <WhyCliniker />
       <Settings />
       <TechStack />
+      <WaveDivider from="var(--bg)" to="var(--bg)" />
       <CTA />
       <Footer />
     </>
