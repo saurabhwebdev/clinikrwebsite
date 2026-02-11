@@ -61,7 +61,18 @@ export default function Footer() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <img src="/logo.png" alt="Clinikr" style={{ height: 36, width: 36, borderRadius: 10 }} />
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#F8FAFC' }}>Clinikr</span>
+              <span style={{ fontSize: '1.2rem', fontWeight: 800, display: 'inline-flex' }}>
+                {'Clinikr'.split('').map((letter, i) => (
+                  <span
+                    key={i}
+                    className="footer-brand-letter"
+                    onMouseEnter={e => e.currentTarget.style.color = '#818CF8'}
+                    onMouseLeave={e => e.currentTarget.style.color = '#F8FAFC'}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
             </div>
             <p style={{
               fontSize: '0.88rem', lineHeight: 1.7, color: '#94A3B8',
@@ -177,6 +188,16 @@ export default function Footer() {
       </div>
 
       <style>{`
+        .footer-brand-letter {
+          color: #F8FAFC;
+          transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+          cursor: default;
+          display: inline-block;
+        }
+        .footer-brand-letter:hover {
+          transform: translateY(-2px);
+          text-shadow: 0 0 12px rgba(129,140,248,0.4);
+        }
         @media (max-width: 768px) {
           .footer-grid {
             grid-template-columns: 1fr !important;
