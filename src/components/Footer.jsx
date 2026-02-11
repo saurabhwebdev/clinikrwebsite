@@ -32,6 +32,24 @@ export default function Footer() {
       position: 'relative',
       overflow: 'hidden',
     }}>
+      {/* Background watermark text */}
+      <div style={{
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: 'clamp(120px, 18vw, 280px)',
+        fontWeight: 900,
+        color: 'rgba(255,255,255,0.03)',
+        letterSpacing: '0.05em',
+        whiteSpace: 'nowrap',
+        pointerEvents: 'none',
+        userSelect: 'none',
+        lineHeight: 1,
+      }}>
+        CLINIKR
+      </div>
+
       {/* Decorative illustration */}
       <img
         src="/images/medical-care.svg"
