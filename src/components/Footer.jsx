@@ -29,9 +29,39 @@ export default function Footer() {
       background: '#0F172A',
       padding: 'clamp(36px, 6vw, 64px) clamp(16px, 3vw, 24px) 0',
       color: '#CBD5E1',
+      position: 'relative',
+      overflow: 'hidden',
     }}>
+      {/* Decorative illustrations */}
+      <img
+        src="/images/doctors.svg"
+        alt=""
+        style={{
+          position: 'absolute',
+          left: '-30px',
+          bottom: '10px',
+          width: 'clamp(180px, 18vw, 260px)',
+          height: 'auto',
+          opacity: 0.04,
+          pointerEvents: 'none',
+        }}
+      />
+      <img
+        src="/images/medical-care.svg"
+        alt=""
+        style={{
+          position: 'absolute',
+          right: '-30px',
+          bottom: '-15px',
+          width: 'clamp(200px, 22vw, 320px)',
+          height: 'auto',
+          opacity: 0.05,
+          pointerEvents: 'none',
+        }}
+      />
       <div style={{
         maxWidth: 1200, margin: '0 auto',
+        position: 'relative', zIndex: 1,
       }}>
         {/* Main footer grid */}
         <div style={{

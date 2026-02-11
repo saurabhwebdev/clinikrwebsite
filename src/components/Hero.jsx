@@ -111,16 +111,6 @@ export default function Hero() {
       <div className="hero-blob hero-blob-3" />
       <div className="hero-fade-bottom" />
 
-      {/* Decorative doctor illustration — bottom left */}
-      <motion.img
-        src="/images/medical-care.svg"
-        alt=""
-        className="hero-doctor-illustration"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 1 }}
-      />
-
       <div className="hero-inner">
         {/* LEFT — copy ─────────────────────────────── */}
         <div className="hero-copy">
@@ -447,15 +437,6 @@ export default function Hero() {
         }
         .hero-trust-item svg { color: var(--primary); }
 
-        /* doctor illustration — background decoration */
-        .hero-doctor-illustration {
-          position: absolute;
-          width: 280px; height: auto;
-          bottom: 20px; left: clamp(20px, 5vw, 80px);
-          opacity: 0.07;
-          pointer-events: none;
-          z-index: 0;
-        }
 
         /* phone */
         .hero-phone-col {
@@ -578,7 +559,6 @@ export default function Hero() {
           .hero-headline br { display: none; }
           .hero-ring { display: none; }
           .hero-blob { display: none; }
-          .hero-doctor-illustration { display: none; }
         }
         @media (max-width: 640px) {
           .hero-section { padding: 100px 16px 60px; min-height: auto; }
