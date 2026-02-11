@@ -56,7 +56,6 @@ export default function Footer() {
           gridTemplateColumns: '1.5fr 1fr 1fr',
           gap: 48,
           paddingBottom: 48,
-          borderBottom: '1px solid #1E293B',
         }} className="footer-grid">
           {/* Brand column */}
           <div>
@@ -153,22 +152,27 @@ export default function Footer() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom bar */}
+      {/* Full-width divider */}
+      <div style={{ borderTop: '1px solid #1E293B', position: 'relative', zIndex: 1 }} />
+
+      {/* Bottom bar */}
+      <div style={{
+        maxWidth: 1200, margin: '0 auto',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        padding: '20px clamp(16px, 3vw, 24px)',
+        flexWrap: 'wrap', gap: 12,
+        position: 'relative', zIndex: 1,
+      }}>
+        <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
+          © {new Date().getFullYear()} Clinikr. All rights reserved.
+        </span>
         <div style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          padding: '20px 0',
-          flexWrap: 'wrap', gap: 12,
+          display: 'flex', alignItems: 'center', gap: 6,
+          fontSize: '0.78rem', color: '#64748B',
         }}>
-          <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
-            © {new Date().getFullYear()} Clinikr. All rights reserved.
-          </span>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            fontSize: '0.78rem', color: '#64748B',
-          }}>
-            Made with <Heart size={12} color="#EF4444" fill="#EF4444" /> for healthcare professionals
-          </div>
+          Made with <Heart size={12} color="#EF4444" fill="#EF4444" /> for healthcare professionals
         </div>
       </div>
 
