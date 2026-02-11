@@ -134,12 +134,12 @@ export default function Workflow() {
                   </p>
                 </motion.div>
 
-                {/* Arrow between steps */}
+                {/* Arrow between steps — centered on 52px icon */}
                 {i < steps.length - 1 && (
                   <div className="workflow-arrow" style={{
-                    display: 'flex', alignItems: 'flex-start',
+                    display: 'flex', alignItems: 'center',
                     justifyContent: 'center',
-                    paddingTop: 14,
+                    height: 52,
                   }}>
                     <ChevronRight size={18} color="var(--primary)" strokeWidth={2.5} />
                   </div>
