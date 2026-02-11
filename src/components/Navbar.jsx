@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav style={{
+      <nav className="nav-pill" style={{
         position: 'fixed',
         top: scrolled ? 12 : 16,
         left: '50%',
@@ -43,13 +43,19 @@ export default function Navbar() {
           : '0 4px 24px rgba(79,70,229,0.2), 0 1px 4px rgba(0,0,0,0.06)',
         border: '1px solid rgba(255,255,255,0.15)',
         transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+        overflow: 'hidden',
       }}>
+        {/* Animated shimmer overlay */}
+        <div className="nav-shimmer" />
+
         <div style={{
           width: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '0 12px',
+          position: 'relative',
+          zIndex: 1,
         }}>
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
             <img src="/logo.png" alt="Clinikr" style={{
@@ -204,6 +210,28 @@ export default function Navbar() {
       </AnimatePresence>
 
       <style>{`
+        @keyframes navShimmer {
+          0% { transform: translateX(-100%) skewX(-15deg); }
+          100% { transform: translateX(200%) skewX(-15deg); }
+        }
+        .nav-shimmer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.06) 40%,
+            rgba(255,255,255,0.12) 50%,
+            rgba(255,255,255,0.06) 60%,
+            transparent 100%
+          );
+          animation: navShimmer 6s ease-in-out infinite;
+          pointer-events: none;
+          border-radius: inherit;
+        }
         @media (max-width: 768px) {
           .nav-desktop { display: none !important; }
           .nav-mobile-btn { display: flex !important; }
