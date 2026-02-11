@@ -165,7 +165,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 2 }} className="nav-desktop">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="nav-desktop">
             {navLinks.map((link, idx) => (
               <div key={link.label} style={{ position: 'relative' }}>
                 {link.children ? (
@@ -176,13 +176,16 @@ export default function Navbar() {
                         setDropdown(dropdown === idx ? null : idx);
                       }}
                       style={{
-                        display: 'flex', alignItems: 'center', gap: 4,
+                        display: 'inline-flex', alignItems: 'center', gap: 4,
+                        fontFamily: 'inherit',
                         fontSize: '0.85rem', fontWeight: 500,
+                        lineHeight: 1.4,
                         color: dropdown === idx ? '#fff' : 'rgba(255,255,255,0.85)',
                         background: dropdown === idx ? 'rgba(255,255,255,0.15)' : 'transparent',
                         border: 'none', cursor: 'pointer',
-                        padding: '7px 14px', borderRadius: 100,
+                        padding: '7px 16px', borderRadius: 100,
                         transition: 'all 0.2s ease',
+                        whiteSpace: 'nowrap',
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.color = '#fff';
@@ -196,9 +199,10 @@ export default function Navbar() {
                       }}
                     >
                       {link.label}
-                      <ChevronDown size={14} style={{
+                      <ChevronDown size={13} style={{
                         transition: 'transform 0.2s',
                         transform: dropdown === idx ? 'rotate(180deg)' : 'rotate(0)',
+                        flexShrink: 0,
                       }} />
                     </button>
 
@@ -269,11 +273,13 @@ export default function Navbar() {
                     style={{
                       fontSize: '0.85rem',
                       fontWeight: 500,
+                      lineHeight: 1.4,
                       color: 'rgba(255,255,255,0.85)',
                       textDecoration: 'none',
-                      padding: '7px 14px',
+                      padding: '7px 16px',
                       borderRadius: 100,
                       transition: 'all 0.2s ease',
+                      whiteSpace: 'nowrap',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.color = '#fff';
