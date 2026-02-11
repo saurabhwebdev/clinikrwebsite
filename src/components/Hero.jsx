@@ -447,32 +447,29 @@ export default function Hero() {
           top: 50%; left: 50%; transform: translate(-50%,-50%);
           background: radial-gradient(ellipse,rgba(79,70,229,0.12) 0%,rgba(124,58,237,0.04) 50%,transparent 70%);
           filter: blur(50px); pointer-events: none;
-          transition: all 0.4s ease;
+          transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
         .hero-phone-hovered .hero-phone-glow {
-          width: 400px; height: 460px;
-          background: radial-gradient(ellipse,rgba(79,70,229,0.22) 0%,rgba(124,58,237,0.08) 50%,transparent 70%);
-          filter: blur(60px);
+          width: 380px; height: 440px;
+          background: radial-gradient(ellipse,rgba(79,70,229,0.18) 0%,rgba(124,58,237,0.06) 50%,transparent 70%);
         }
         .hero-phone-frame {
           position: relative; padding: 3px; border-radius: 40px;
           background: linear-gradient(160deg,rgba(79,70,229,0.15),rgba(124,58,237,0.08),rgba(226,232,240,0.5));
-          transition: all 0.4s ease;
+          transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
         .hero-phone-hovered .hero-phone-frame {
-          padding: 3px;
-          background: linear-gradient(160deg,rgba(79,70,229,0.35),rgba(124,58,237,0.2),rgba(99,102,241,0.15));
-          box-shadow: 0 0 0 1px rgba(79,70,229,0.08);
+          background: linear-gradient(160deg,rgba(79,70,229,0.28),rgba(124,58,237,0.15),rgba(99,102,241,0.1));
         }
         .hero-phone {
           position: relative; width: 270px; height: 540px;
           background: #fff; border-radius: 38px; overflow: hidden;
           box-shadow: 0 30px 80px rgba(0,0,0,0.06), 0 4px 16px rgba(79,70,229,0.04);
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
         }
         .hero-phone-hovered .hero-phone {
-          transform: translateY(-6px);
-          box-shadow: 0 40px 100px rgba(0,0,0,0.10), 0 8px 24px rgba(79,70,229,0.10);
+          transform: translateY(-4px);
+          box-shadow: 0 36px 90px rgba(0,0,0,0.09), 0 6px 20px rgba(79,70,229,0.07);
         }
         .hero-phone-island {
           position: absolute; top: 8px; left: 50%;
