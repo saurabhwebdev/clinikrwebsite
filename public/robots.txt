@@ -1,0 +1,9 @@
+# Clinikr - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://clinikr.xyz/sitemap.xml
+
+# Crawl-delay (optional, be friendly to crawlers)
+Crawl-delay: 1

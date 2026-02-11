@@ -127,7 +127,7 @@ export default function CTA() {
                   >
                     <Download size={17} /> Download Now
                   </a>
-                  <a href="mailto:support@clinikr.com" style={{
+                  <a href="mailto:support@clinikr.xyz" style={{
                     display: 'inline-flex', alignItems: 'center', gap: 8,
                     padding: '14px 28px',
                     background: 'rgba(255,255,255,0.06)',

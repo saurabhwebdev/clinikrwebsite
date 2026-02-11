@@ -32,8 +32,8 @@ const channels = [
     icon: Mail,
     title: 'Email Support',
     desc: 'Get a response within 24 hours',
-    action: 'support@clinikr.com',
-    href: 'mailto:support@clinikr.com',
+    action: 'support@clinikr.xyz',
+    href: 'mailto:support@clinikr.xyz',
     color: '#4F46E5',
   },
   {
@@ -151,7 +151,7 @@ export default function Support() {
             <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', marginBottom: 16 }}>
               Our support team typically responds within 24 hours.
             </p>
-            <a href="mailto:support@clinikr.com" style={{
+            <a href="mailto:support@clinikr.xyz" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '10px 24px', background: '#fff', color: '#4F46E5',
               borderRadius: 10, fontSize: '0.88rem', fontWeight: 700, textDecoration: 'none',

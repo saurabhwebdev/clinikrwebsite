@@ -124,7 +124,7 @@ export default function Terms() {
               <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>Questions about these terms?</span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
-              Contact us at <a href="mailto:legal@clinikr.com" style={{ color: 'var(--primary)', fontWeight: 600 }}>legal@clinikr.com</a>
+              Contact us at <a href="mailto:legal@clinikr.xyz" style={{ color: 'var(--primary)', fontWeight: 600 }}>legal@clinikr.xyz</a>
             </p>
           </div>
         </div>

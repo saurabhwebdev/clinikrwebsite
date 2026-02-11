@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle2 } from 'lucide-react';
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'support@clinikr.com', href: 'mailto:support@clinikr.com' },
+  { icon: Mail, label: 'Email', value: 'support@clinikr.xyz', href: 'mailto:support@clinikr.xyz' },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours', href: null },
   { icon: MapPin, label: 'Based in', value: 'India', href: null },
 ];

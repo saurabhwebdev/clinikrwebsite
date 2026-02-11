@@ -78,7 +78,7 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="topbar-left">
-            <a href="mailto:support@clinikr.com" style={{
+            <a href="mailto:support@clinikr.xyz" style={{
               display: 'flex', alignItems: 'center', gap: 6,
               fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'none',
               transition: 'color 0.2s',
@@ -86,7 +86,7 @@ export default function Navbar() {
               onMouseEnter={e => e.currentTarget.style.color = '#C7D2FE'}
               onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
             >
-              <Mail size={12} /> support@clinikr.com
+              <Mail size={12} /> support@clinikr.xyz
             </a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="topbar-right">
