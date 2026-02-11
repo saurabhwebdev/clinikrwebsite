@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Clock, Frown, FileWarning } from 'lucide-react';
-import { useRef } from 'react';
 
 const pains = [
   {
@@ -27,64 +26,42 @@ const pains = [
 ];
 
 export default function StoryIntro() {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const glowY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
-
   return (
     <section
-      ref={sectionRef}
       id="story"
+      className="section section-alt"
       style={{
         position: 'relative',
-        background: '#0B0B10',
         overflow: 'hidden',
-        padding: '120px 24px 0',
       }}
     >
-      {/* Subtle red radial glow */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '20%',
-          left: '50%',
-          width: 800,
-          height: 800,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)',
-          transform: 'translateX(-50%)',
-          y: glowY,
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Noise texture overlay */}
+      {/* Subtle warm radial glow */}
       <div style={{
         position: 'absolute',
-        inset: 0,
-        background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`,
-        opacity: 0.4,
+        top: '20%',
+        left: '50%',
+        width: 800,
+        height: 800,
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(239,68,68,0.04) 0%, transparent 70%)',
+        transform: 'translateX(-50%)',
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: 72 }}
+          style={{ textAlign: 'center', marginBottom: 64 }}
         >
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: 8,
-            background: 'rgba(239,68,68,0.1)',
+            background: '#FEF2F2',
             color: '#EF4444',
             fontSize: '0.8rem',
             fontWeight: 600,
@@ -93,18 +70,11 @@ export default function StoryIntro() {
             letterSpacing: '0.05em',
             textTransform: 'uppercase',
             marginBottom: 20,
-            border: '1px solid rgba(239,68,68,0.15)',
+            border: '1px solid #FEE2E2',
           }}>
             The Problem
           </div>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-            fontWeight: 800,
-            lineHeight: 1.2,
-            color: '#F8FAFC',
-            marginBottom: 16,
-            letterSpacing: '-0.02em',
-          }}>
+          <h2 className="section-title" style={{ maxWidth: 700, margin: '0 auto 16px' }}>
             Running a clinic shouldn't feel like{' '}
             <span style={{
               background: 'linear-gradient(135deg, #EF4444, #F97316)',
@@ -115,20 +85,14 @@ export default function StoryIntro() {
               fighting fires
             </span>
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: 'rgba(248,250,252,0.5)',
-            lineHeight: 1.7,
-            maxWidth: 580,
-            margin: '0 auto',
-          }}>
+          <p className="section-subtitle" style={{ margin: '0 auto' }}>
             You became a doctor to heal people, not to wrestle with spreadsheets.
             Yet here you are — drowning in admin work every single day.
           </p>
         </motion.div>
 
         {/* Pain strips */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 900, margin: '0 auto' }}>
           {pains.map(({ num, icon: Icon, title, desc, accent }, i) => (
             <motion.div
               key={num}
@@ -136,20 +100,17 @@ export default function StoryIntro() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="pain-strip"
               style={{
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: 24,
                 padding: '28px 32px',
-                background: 'rgba(255,255,255,0.03)',
+                background: 'var(--surface)',
                 borderRadius: 16,
-                border: '1px solid rgba(255,255,255,0.06)',
-                transition: 'all 0.3s ease',
+                border: '1px solid var(--border)',
+                transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
                 cursor: 'default',
-              }}
-              whileHover={{
-                background: 'rgba(255,255,255,0.05)',
-                borderColor: `${accent}30`,
               }}
             >
               {/* Number */}
@@ -157,7 +118,7 @@ export default function StoryIntro() {
                 fontSize: '2.5rem',
                 fontWeight: 800,
                 color: accent,
-                opacity: 0.2,
+                opacity: 0.15,
                 lineHeight: 1,
                 fontFamily: 'monospace',
                 minWidth: 56,
@@ -186,14 +147,14 @@ export default function StoryIntro() {
                 <h3 style={{
                   fontSize: '1.1rem',
                   fontWeight: 700,
-                  color: '#F1F5F9',
+                  color: 'var(--text)',
                   marginBottom: 6,
                 }}>
                   {title}
                 </h3>
                 <p style={{
                   fontSize: '0.9rem',
-                  color: 'rgba(248,250,252,0.45)',
+                  color: 'var(--text-secondary)',
                   lineHeight: 1.6,
                   margin: 0,
                 }}>
@@ -203,66 +164,53 @@ export default function StoryIntro() {
             </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* Gradient bridge transition */}
-      <div style={{
-        position: 'relative',
-        marginTop: 80,
-        paddingBottom: 100,
-        textAlign: 'center',
-      }}>
-        {/* Gradient line */}
+        {/* Bridge transition */}
         <div style={{
-          width: 2,
-          height: 60,
-          margin: '0 auto 32px',
-          background: 'linear-gradient(to bottom, rgba(239,68,68,0.4), rgba(79,70,229,0.6))',
-          borderRadius: 2,
-        }} />
+          textAlign: 'center',
+          marginTop: 64,
+        }}>
+          {/* Gradient line */}
+          <div style={{
+            width: 2,
+            height: 48,
+            margin: '0 auto 24px',
+            background: 'linear-gradient(to bottom, rgba(239,68,68,0.3), var(--primary))',
+            borderRadius: 2,
+          }} />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{
-            fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-            fontWeight: 700,
-            color: '#F8FAFC',
-            marginBottom: 8,
-          }}
-        >
-          What if{' '}
-          <span style={{
-            background: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>
-            one app
-          </span>
-          {' '}replaced all of that?
-        </motion.p>
-
-        {/* Bottom gradient fade into next section */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 120,
-          background: 'linear-gradient(to bottom, transparent, var(--bg))',
-          pointerEvents: 'none',
-        }} />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            style={{
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
+              fontWeight: 700,
+              color: 'var(--text)',
+            }}
+          >
+            What if{' '}
+            <span className="gradient-text">one app</span>
+            {' '}replaced all of that?
+          </motion.p>
+        </div>
       </div>
 
       <style>{`
+        .pain-strip:hover {
+          border-color: var(--primary-light) !important;
+          box-shadow: 0 8px 32px rgba(79,70,229,0.06);
+          transform: translateY(-2px);
+        }
         @media (max-width: 640px) {
-          #story { padding: 80px 16px 0 !important; }
-          #story [style*="gap: 24px"] {
-            gap: 16px !important;
+          .pain-strip {
             flex-direction: column !important;
+            gap: 12px !important;
+            padding: 20px !important;
+          }
+          .pain-strip span[style*="minWidth"] {
+            min-width: auto !important;
           }
         }
       `}</style>
