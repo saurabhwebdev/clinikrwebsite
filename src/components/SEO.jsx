@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 const SITE = 'https://clinikr.xyz';
 const DEFAULT_TITLE = 'Clinikr — All-in-One Clinic Management App';
 const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one beautiful app. Free forever.';
-const OG_IMAGE = `${SITE}/og-image.svg`;
+const OG_IMAGE = `${SITE}/api/og`;
 
 export default function SEO({ title, description, path = '/' }) {
   const pageTitle = title ? `${title} | Clinikr` : DEFAULT_TITLE;
