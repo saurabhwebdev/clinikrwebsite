@@ -7,21 +7,18 @@ const pains = [
     icon: Clock,
     title: 'Hours lost to paperwork',
     desc: 'Patient files scattered across drawers. Appointment books overflowing. Bills handwritten and error-prone.',
-    accent: '#EF4444',
   },
   {
     num: '02',
     icon: Frown,
     title: 'Patients wait. You apologize.',
     desc: 'No system to track who\'s next, what they owe, or when they last visited. Every day feels chaotic.',
-    accent: '#F97316',
   },
   {
     num: '03',
     icon: FileWarning,
     title: 'Data lives in 5 different places',
     desc: 'Excel for billing. WhatsApp for reminders. A diary for appointments. Nothing talks to anything.',
-    accent: '#EAB308',
   },
 ];
 
@@ -35,7 +32,7 @@ export default function StoryIntro() {
         overflow: 'hidden',
       }}
     >
-      {/* Subtle warm radial glow */}
+      {/* Subtle indigo radial glow */}
       <div style={{
         position: 'absolute',
         top: '20%',
@@ -43,7 +40,7 @@ export default function StoryIntro() {
         width: 800,
         height: 800,
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(239,68,68,0.04) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(79,70,229,0.04) 0%, transparent 70%)',
         transform: 'translateX(-50%)',
         pointerEvents: 'none',
       }} />
@@ -57,33 +54,12 @@ export default function StoryIntro() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            background: '#FEF2F2',
-            color: '#EF4444',
-            fontSize: '0.8rem',
-            fontWeight: 600,
-            padding: '6px 16px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-            marginBottom: 20,
-            border: '1px solid #FEE2E2',
-          }}>
+          <div className="section-label" style={{ margin: '0 auto 16px' }}>
             The Problem
           </div>
           <h2 className="section-title" style={{ maxWidth: 700, margin: '0 auto 16px' }}>
             Running a clinic shouldn't feel like{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #EF4444, #F97316)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              fighting fires
-            </span>
+            <span className="gradient-text">fighting fires</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
             You became a doctor to heal people, not to wrestle with spreadsheets.
@@ -93,7 +69,7 @@ export default function StoryIntro() {
 
         {/* Pain strips */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 900, margin: '0 auto' }}>
-          {pains.map(({ num, icon: Icon, title, desc, accent }, i) => (
+          {pains.map(({ num, icon: Icon, title, desc }, i) => (
             <motion.div
               key={num}
               initial={{ opacity: 0, x: -40 }}
@@ -117,7 +93,7 @@ export default function StoryIntro() {
               <span style={{
                 fontSize: '2.5rem',
                 fontWeight: 800,
-                color: accent,
+                color: 'var(--primary)',
                 opacity: 0.15,
                 lineHeight: 1,
                 fontFamily: 'monospace',
@@ -132,14 +108,14 @@ export default function StoryIntro() {
                 width: 44,
                 height: 44,
                 borderRadius: 12,
-                background: `${accent}12`,
+                background: 'var(--primary-soft)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
                 marginTop: 2,
               }}>
-                <Icon size={20} color={accent} />
+                <Icon size={20} color="var(--primary)" />
               </div>
 
               {/* Content */}
@@ -175,7 +151,7 @@ export default function StoryIntro() {
             width: 2,
             height: 48,
             margin: '0 auto 24px',
-            background: 'linear-gradient(to bottom, rgba(239,68,68,0.3), var(--primary))',
+            background: 'linear-gradient(to bottom, var(--primary-light), var(--primary-dark))',
             borderRadius: 2,
           }} />
 
