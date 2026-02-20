@@ -2,8 +2,9 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react';
 import {
   Stethoscope, Calendar, FileText, BarChart3,
-  Check, Clock, TrendingUp, ArrowRight,
+  ArrowRight, Check, Clock, TrendingUp,
   ClipboardList, Pill, IndianRupee,
+  Users, Activity,
 } from 'lucide-react';
 
 /* ── tab definitions ─────────────────────────────────── */
@@ -16,7 +17,7 @@ const tabs = [
 
 /* ── screen content for each tab ─────────────────────── */
 const screens = {
-  0: { /* Dashboard */
+  0: {
     header: { greeting: 'Good morning,', name: 'Dr. Sharma' },
     stats: [
       { n: '12', l: 'Today',   c: '#4F46E5' },
@@ -31,7 +32,7 @@ const screens = {
       { name: 'Neha Gupta',    sub: '12:00 PM', tag: 'Scheduled',  color: '#6366F1' },
     ],
   },
-  1: { /* Appointments */
+  1: {
     header: { greeting: 'Schedule', name: 'Appointments' },
     stats: [
       { n: '5',  l: 'Morning', c: '#F59E0B' },
@@ -46,7 +47,7 @@ const screens = {
       { name: 'Suresh Kumar',   sub: '02:00 PM — Lab Review',    tag: 'Pending',   color: '#94A3B8' },
     ],
   },
-  2: { /* EMR */
+  2: {
     header: { greeting: 'Medical', name: 'Records' },
     stats: [
       { n: '248', l: 'Patients', c: '#4F46E5' },
@@ -61,7 +62,7 @@ const screens = {
       { name: 'Neha Gupta',    sub: 'Thyroid — Levothyroxine',    tag: 'Active',    color: '#22C55E', Ic: ClipboardList },
     ],
   },
-  3: { /* Analytics */
+  3: {
     header: { greeting: 'Revenue', name: 'Analytics' },
     stats: [
       { n: '₹1.2L', l: 'This Month', c: '#22C55E' },
@@ -89,7 +90,9 @@ export default function Hero() {
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
-  const phoneY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const phoneY   = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const floatY1  = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const floatY2  = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
   /* auto-cycle tabs — pause on hover */
   useEffect(() => {
@@ -102,22 +105,22 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="hero-section">
-      {/* ── background ───────────────────────────────── */}
+      {/* ── background layers ────────────────────────── */}
       <div className="hero-dot-grid" />
-      <div className="hero-ring hero-ring-1" />
-      <div className="hero-ring hero-ring-2" />
-      <div className="hero-blob hero-blob-1" />
-      <div className="hero-blob hero-blob-2" />
-      <div className="hero-blob hero-blob-3" />
+      <div className="hero-accent-line hero-accent-line-1" />
+      <div className="hero-accent-line hero-accent-line-2" />
+      <div className="hero-orb hero-orb-1" />
+      <div className="hero-orb hero-orb-2" />
+      <div className="hero-orb hero-orb-3" />
       <div className="hero-fade-bottom" />
 
       <div className="hero-inner">
         {/* LEFT — copy ─────────────────────────────── */}
         <div className="hero-copy">
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
           >
             <div className="hero-badge">
               <span className="hero-badge-dot" />
@@ -128,20 +131,20 @@ export default function Hero() {
 
           <motion.h1
             className="hero-headline"
-            initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
           >
-            Your entire clinic,{' '}
+            Your entire clinic,
             <br />
             <span className="hero-gradient-text">one app.</span>
           </motion.h1>
 
           <motion.p
             className="hero-subtitle"
-            initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
           >
             Patients, appointments, medical records, billing, POS,
             inventory, and lab orders — all beautifully connected,
@@ -150,14 +153,14 @@ export default function Hero() {
 
           <motion.div
             className="hero-ctas"
-            initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.24 }}
           >
             <a href="#cta" className="hero-cta-primary">
               <span className="hero-cta-shimmer" />
               Get Started
-              <ArrowRight size={16} style={{ marginLeft: 8 }} />
+              <ArrowRight size={15} strokeWidth={2.5} />
             </a>
             <a href="#features" className="hero-cta-secondary">
               Explore Features
@@ -168,7 +171,7 @@ export default function Hero() {
             className="hero-trust"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
+            transition={{ delay: 0.65, duration: 0.5 }}
           >
             {[
               { icon: Check,       text: 'Fair Pricing' },
@@ -183,114 +186,149 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — phone ───────────────────────────── */}
-        <motion.div
-          className={`hero-phone-col${hovered ? ' hero-phone-hovered' : ''}`}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          style={{ y: phoneY }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <div className="hero-phone-glow" />
+        {/* RIGHT — phone + floating cards ─────────── */}
+        <div className="hero-phone-area">
+          <motion.div
+            className={`hero-phone-col${hovered ? ' hero-phone-hovered' : ''}`}
+            initial={{ opacity: 0, y: 44 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            style={{ y: phoneY }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <div className="hero-phone-glow" />
 
-          <div className="hero-phone-frame">
-            <div className="hero-phone">
-              <div className="hero-phone-island" />
+            <div className="hero-phone-frame">
+              <div className="hero-phone">
+                <div className="hero-phone-island" />
 
-              {/* status bar */}
-              <div className="hero-phone-statusbar">
-                <span>9:41</span>
-                <div className="hero-phone-battery">
-                  <div className="hero-phone-battery-fill" />
+                {/* status bar */}
+                <div className="hero-phone-statusbar">
+                  <span>9:41</span>
+                  <div className="hero-phone-battery">
+                    <div className="hero-phone-battery-fill" />
+                  </div>
+                </div>
+
+                {/* screen content — slide on tab change */}
+                <div style={{ position: 'relative', overflow: 'hidden', flex: 1 }}>
+                <AnimatePresence initial={false}>
+                  <motion.div
+                    key={activeTab}
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '-100%' }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    className="hero-phone-screen"
+                    style={{ position: 'absolute', inset: 0 }}
+                  >
+                    {/* header */}
+                    <div className="hero-phone-header">
+                      <div>
+                        <div style={{ fontSize: '0.56rem', color: '#94A3B8', fontWeight: 500 }}>
+                          {screen.header.greeting}
+                        </div>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B', letterSpacing: '-0.02em' }}>
+                          {screen.header.name}
+                        </div>
+                      </div>
+                      <div className="hero-phone-avatar">DS</div>
+                    </div>
+
+                    {/* stats */}
+                    <div className="hero-phone-stats">
+                      {screen.stats.map(s => (
+                        <div key={s.l} className="hero-phone-stat">
+                          <div style={{ fontSize: '1rem', fontWeight: 800, color: s.c }}>{s.n}</div>
+                          <div style={{ fontSize: '0.5rem', color: '#94A3B8', fontWeight: 500, marginTop: 1 }}>{s.l}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* section label */}
+                    <div style={{ padding: '2px 16px 8px', fontSize: '0.64rem', fontWeight: 700, color: '#1E293B' }}>
+                      {screen.sectionLabel}
+                    </div>
+
+                    {/* rows */}
+                    <div className="hero-phone-list">
+                      {screen.rows.map((r, i) => (
+                        <div
+                          key={r.name}
+                          className="hero-phone-row"
+                          style={{
+                            background: i === 0 ? '#EEF2FF' : '#F8FAFC',
+                            border: i === 0 ? '1px solid rgba(99,102,241,0.12)' : '1px solid transparent',
+                          }}
+                        >
+                          <div className="hero-phone-row-avatar" style={{ background: `${r.color}12`, color: r.color }}>
+                            {r.name.split(' ').map(w => w[0]).join('')}
+                          </div>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ fontSize: '0.64rem', fontWeight: 600, color: '#1E293B' }}>{r.name}</div>
+                            <div style={{ fontSize: '0.5rem', color: '#94A3B8' }}>{r.sub}</div>
+                          </div>
+                          <span className="hero-phone-badge" style={{ background: `${r.color}10`, color: r.color }}>
+                            {r.tag}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+                </div>
+
+                {/* bottom nav — always visible, clickable */}
+                <div className="hero-phone-nav">
+                  {tabs.map(({ Ic, label }, i) => (
+                    <div
+                      key={label}
+                      className={`hero-phone-nav-item${activeTab === i ? ' active' : ''}`}
+                      onClick={() => setActiveTab(i)}
+                    >
+                      <Ic size={16} color={activeTab === i ? '#4F46E5' : '#CBD5E1'} />
+                      {activeTab === i && <div className="hero-phone-nav-dot" />}
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              {/* screen content — slide on tab change */}
-              <div style={{ position: 'relative', overflow: 'hidden', flex: 1 }}>
-              <AnimatePresence initial={false}>
-                <motion.div
-                  key={activeTab}
-                  initial={{ x: '100%' }}
-                  animate={{ x: 0 }}
-                  exit={{ x: '-100%' }}
-                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                  className="hero-phone-screen"
-                  style={{ position: 'absolute', inset: 0 }}
-                >
-                  {/* header */}
-                  <div className="hero-phone-header">
-                    <div>
-                      <div style={{ fontSize: '0.56rem', color: '#94A3B8', fontWeight: 500 }}>
-                        {screen.header.greeting}
-                      </div>
-                      <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B', letterSpacing: '-0.02em' }}>
-                        {screen.header.name}
-                      </div>
-                    </div>
-                    <div className="hero-phone-avatar">DS</div>
-                  </div>
-
-                  {/* stats */}
-                  <div className="hero-phone-stats">
-                    {screen.stats.map(s => (
-                      <div key={s.l} className="hero-phone-stat">
-                        <div style={{ fontSize: '1rem', fontWeight: 800, color: s.c }}>{s.n}</div>
-                        <div style={{ fontSize: '0.5rem', color: '#94A3B8', fontWeight: 500, marginTop: 1 }}>{s.l}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* section label */}
-                  <div style={{ padding: '2px 16px 8px', fontSize: '0.64rem', fontWeight: 700, color: '#1E293B' }}>
-                    {screen.sectionLabel}
-                  </div>
-
-                  {/* rows */}
-                  <div className="hero-phone-list">
-                    {screen.rows.map((r, i) => (
-                      <div
-                        key={r.name}
-                        className="hero-phone-row"
-                        style={{
-                          background: i === 0 ? '#EEF2FF' : '#F8FAFC',
-                          border: i === 0 ? '1px solid rgba(99,102,241,0.12)' : '1px solid transparent',
-                        }}
-                      >
-                        <div className="hero-phone-row-avatar" style={{ background: `${r.color}12`, color: r.color }}>
-                          {r.name.split(' ').map(w => w[0]).join('')}
-                        </div>
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: '0.64rem', fontWeight: 600, color: '#1E293B' }}>{r.name}</div>
-                          <div style={{ fontSize: '0.5rem', color: '#94A3B8' }}>{r.sub}</div>
-                        </div>
-                        <span className="hero-phone-badge" style={{ background: `${r.color}10`, color: r.color }}>
-                          {r.tag}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-              </div>
-
-              {/* bottom nav — always visible, clickable */}
-              <div className="hero-phone-nav">
-                {tabs.map(({ Ic, label }, i) => (
-                  <div
-                    key={label}
-                    className={`hero-phone-nav-item${activeTab === i ? ' active' : ''}`}
-                    onClick={() => setActiveTab(i)}
-                  >
-                    <Ic size={16} color={activeTab === i ? '#4F46E5' : '#CBD5E1'} />
-                    {activeTab === i && <div className="hero-phone-nav-dot" />}
-                  </div>
-                ))}
-              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* ── Floating stat cards ── */}
+          <motion.div
+            className="hero-float-card hero-float-card-1"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            style={{ y: floatY1 }}
+          >
+            <div className="hero-float-icon" style={{ background: 'rgba(79,70,229,0.1)', color: '#4F46E5' }}>
+              <Users size={14} />
+            </div>
+            <div>
+              <div className="hero-float-value">2,480+</div>
+              <div className="hero-float-label">Patients managed</div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="hero-float-card hero-float-card-2"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            style={{ y: floatY2 }}
+          >
+            <div className="hero-float-icon" style={{ background: 'rgba(34,197,94,0.1)', color: '#22C55E' }}>
+              <Activity size={14} />
+            </div>
+            <div>
+              <div className="hero-float-value">99.9%</div>
+              <div className="hero-float-label">Uptime</div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* ── styles ───────────────────────────────────── */}
@@ -300,62 +338,80 @@ export default function Hero() {
           display: flex; align-items: center; justify-content: center;
           position: relative; overflow: hidden;
           padding: 130px 24px 100px;
+          background: var(--bg);
         }
 
+        /* ── Background: dot grid ── */
         .hero-dot-grid {
           position: absolute; inset: 0;
-          background-image: radial-gradient(circle, rgba(79,70,229,0.05) 1px, transparent 1px);
-          background-size: 32px 32px;
+          background-image: radial-gradient(circle, rgba(79,70,229,0.045) 1px, transparent 1px);
+          background-size: 28px 28px;
           pointer-events: none;
           mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, black 15%, transparent 68%);
           -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, black 15%, transparent 68%);
         }
-        .hero-ring {
+
+        /* ── Background: accent lines ── */
+        .hero-accent-line {
           position: absolute; border-radius: 50%;
           border: 1px solid rgba(79,70,229,0.06);
           pointer-events: none;
         }
-        .hero-ring-1 { width: 600px; height: 600px; top: 50%; right: -100px; transform: translateY(-50%); }
-        .hero-ring-2 { width: 900px; height: 900px; top: 50%; right: -250px; transform: translateY(-50%); }
+        .hero-accent-line-1 {
+          width: 650px; height: 650px;
+          top: 50%; right: -120px; transform: translateY(-50%);
+        }
+        .hero-accent-line-2 {
+          width: 950px; height: 950px;
+          top: 50%; right: -270px; transform: translateY(-50%);
+        }
 
-        .hero-blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
-        .hero-blob-1 {
-          width: 450px; height: 450px; top: -5%; right: 10%;
-          background: radial-gradient(circle, rgba(79,70,229,0.10) 0%, transparent 70%);
-          animation: blobFloat 14s ease-in-out infinite alternate;
+        /* ── Background: soft orbs ── */
+        .hero-orb {
+          position: absolute; border-radius: 50%;
+          filter: blur(90px); pointer-events: none;
         }
-        .hero-blob-2 {
-          width: 350px; height: 350px; bottom: 5%; left: 8%;
-          background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
-          animation: blobFloat 11s ease-in-out infinite alternate-reverse;
+        .hero-orb-1 {
+          width: 420px; height: 420px; top: -8%; right: 12%;
+          background: radial-gradient(circle, rgba(79,70,229,0.09) 0%, transparent 70%);
+          animation: orbFloat 16s ease-in-out infinite alternate;
         }
-        .hero-blob-3 {
-          width: 250px; height: 250px; top: 60%; right: 30%;
-          background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%);
-          animation: blobFloat 16s ease-in-out infinite alternate;
+        .hero-orb-2 {
+          width: 320px; height: 320px; bottom: 5%; left: 6%;
+          background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
+          animation: orbFloat 12s ease-in-out infinite alternate-reverse;
         }
-        @keyframes blobFloat {
-          0%   { transform: translate(0,0) scale(1); }
-          100% { transform: translate(-20px,12px) scale(1.05); }
+        .hero-orb-3 {
+          width: 220px; height: 220px; top: 55%; right: 28%;
+          background: radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%);
+          animation: orbFloat 18s ease-in-out infinite alternate;
         }
+        @keyframes orbFloat {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(-18px, 12px) scale(1.04); }
+        }
+
         .hero-fade-bottom {
           position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
           background: linear-gradient(to bottom, transparent, var(--bg));
           pointer-events: none;
         }
 
+        /* ── Layout ── */
         .hero-inner {
           position: relative; z-index: 1;
-          max-width: 1160px; width: 100%;
+          max-width: 1180px; width: 100%;
           display: flex; align-items: center;
           justify-content: space-between; gap: 48px;
         }
 
+        /* ── Badge ── */
         .hero-badge {
           display: inline-flex; align-items: center; gap: 8px;
           background: var(--primary-soft); color: var(--primary);
           font-size: 0.78rem; font-weight: 600;
           padding: 7px 16px 7px 12px; border-radius: 100px;
+          border: 1px solid rgba(79,70,229,0.08);
         }
         .hero-badge-dot {
           width: 7px; height: 7px; border-radius: 50%;
@@ -367,20 +423,18 @@ export default function Hero() {
           50%     { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
         }
 
+        /* ── Copy ── */
         .hero-copy { flex: 1; max-width: 540px; }
+
         .hero-headline {
-          font-size: clamp(2.4rem,5.5vw,3.75rem);
-          font-weight: 900; line-height: 1.06;
+          font-size: clamp(2.5rem, 5.5vw, 3.85rem);
+          font-weight: 900; line-height: 1.05;
           letter-spacing: -0.035em;
-          margin: 24px 0 22px; color: var(--text);
+          margin: 26px 0 22px; color: var(--text);
         }
-        .hero-subtitle {
-          font-size: clamp(1rem,1.7vw,1.12rem);
-          color: var(--text-secondary); line-height: 1.75;
-          margin-bottom: 36px; max-width: 440px;
-        }
+
         .hero-gradient-text {
-          background: linear-gradient(135deg,#4F46E5 0%,#7C3AED 40%,#4F46E5 80%,#7C3AED 100%);
+          background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 40%, #4F46E5 80%, #7C3AED 100%);
           background-size: 200% 200%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -392,24 +446,32 @@ export default function Hero() {
           50%     { background-position: 100% 50%; }
         }
 
-        .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+        .hero-subtitle {
+          font-size: clamp(1rem, 1.7vw, 1.12rem);
+          color: var(--text-secondary); line-height: 1.75;
+          margin-bottom: 36px; max-width: 440px;
+        }
+
+        /* ── CTAs ── */
+        .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 34px; }
+
         .hero-cta-primary {
-          display: inline-flex; align-items: center;
-          padding: 14px 32px;
-          background: linear-gradient(135deg,#4F46E5,#6366F1);
-          color: #fff; border-radius: 13px;
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 14px 30px;
+          background: linear-gradient(135deg, #4F46E5, #6366F1);
+          color: #fff; border-radius: 14px;
           font-size: 0.93rem; font-weight: 700;
           text-decoration: none; transition: all 0.25s ease;
-          box-shadow: 0 4px 18px rgba(79,70,229,0.25);
+          box-shadow: 0 4px 20px rgba(79,70,229,0.28);
           position: relative; overflow: hidden;
         }
         .hero-cta-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(79,70,229,0.35);
+          box-shadow: 0 8px 32px rgba(79,70,229,0.38);
         }
         .hero-cta-shimmer {
           position: absolute; inset: 0;
-          background: linear-gradient(110deg,transparent 20%,rgba(255,255,255,0.15) 45%,rgba(255,255,255,0.25) 50%,rgba(255,255,255,0.15) 55%,transparent 80%);
+          background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.12) 55%, transparent 80%);
           transform: translateX(-100%);
           animation: ctaShimmer 3s ease-in-out infinite;
           pointer-events: none;
@@ -419,11 +481,12 @@ export default function Hero() {
           60%  { transform: translateX(100%); }
           100% { transform: translateX(100%); }
         }
+
         .hero-cta-secondary {
           display: inline-flex; align-items: center;
-          padding: 14px 32px;
+          padding: 14px 30px;
           background: var(--surface); color: var(--text);
-          border-radius: 13px; font-size: 0.93rem; font-weight: 600;
+          border-radius: 14px; font-size: 0.93rem; font-weight: 600;
           text-decoration: none; border: 1px solid var(--border);
           transition: all 0.25s ease;
         }
@@ -433,6 +496,7 @@ export default function Hero() {
           transform: translateY(-2px);
         }
 
+        /* ── Trust row ── */
         .hero-trust { display: flex; gap: 20px; flex-wrap: wrap; }
         .hero-trust-item {
           display: inline-flex; align-items: center; gap: 6px;
@@ -440,42 +504,84 @@ export default function Hero() {
         }
         .hero-trust-item svg { color: var(--primary); }
 
-
-        /* phone */
-        .hero-phone-col {
+        /* ── Phone area (phone + floaters) ── */
+        .hero-phone-area {
           position: relative; flex-shrink: 0;
+        }
+
+        /* ── Floating stat cards ── */
+        .hero-float-card {
+          position: absolute; z-index: 10;
+          display: flex; align-items: center; gap: 10px;
+          background: #fff;
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 10px 16px;
+          box-shadow: 0 8px 28px rgba(0,0,0,0.06), 0 1px 4px rgba(79,70,229,0.04);
+          white-space: nowrap;
+        }
+        .hero-float-card-1 {
+          top: 60px; right: -48px;
+        }
+        .hero-float-card-2 {
+          bottom: 100px; left: -54px;
+        }
+        .hero-float-icon {
+          width: 32px; height: 32px; border-radius: 9px;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        }
+        .hero-float-value {
+          font-size: 0.92rem; font-weight: 800;
+          color: var(--text); letter-spacing: -0.02em;
+        }
+        .hero-float-label {
+          font-size: 0.68rem; font-weight: 500;
+          color: var(--text-muted); margin-top: -1px;
+        }
+
+        /* ── Phone ── */
+        .hero-phone-col {
+          position: relative;
           cursor: pointer;
         }
         .hero-phone-glow {
           position: absolute; width: 340px; height: 400px;
           top: 50%; left: 50%; transform: translate(-50%,-50%);
-          background: radial-gradient(ellipse,rgba(79,70,229,0.12) 0%,rgba(124,58,237,0.04) 50%,transparent 70%);
+          background: radial-gradient(ellipse, rgba(79,70,229,0.10) 0%, rgba(124,58,237,0.03) 50%, transparent 70%);
           filter: blur(50px); pointer-events: none;
           transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
         .hero-phone-hovered .hero-phone-glow {
           width: 380px; height: 440px;
-          background: radial-gradient(ellipse,rgba(79,70,229,0.18) 0%,rgba(124,58,237,0.06) 50%,transparent 70%);
+          background: radial-gradient(ellipse, rgba(79,70,229,0.16) 0%, rgba(124,58,237,0.05) 50%, transparent 70%);
         }
         .hero-phone-frame {
           position: relative; padding: 3px; border-radius: 40px;
-          background: linear-gradient(160deg,rgba(79,70,229,0.15),rgba(124,58,237,0.08),rgba(226,232,240,0.5));
+          background: linear-gradient(160deg, rgba(79,70,229,0.18), rgba(124,58,237,0.08), rgba(226,232,240,0.5));
           transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
         .hero-phone-hovered .hero-phone-frame {
-          background: linear-gradient(160deg,rgba(79,70,229,0.28),rgba(124,58,237,0.15),rgba(99,102,241,0.1));
+          background: linear-gradient(160deg, rgba(79,70,229,0.30), rgba(124,58,237,0.16), rgba(99,102,241,0.1));
         }
         .hero-phone {
-          position: relative; width: 270px; height: 540px;
+          position: relative; width: 270px; height: 545px;
           background: #fff; border-radius: 38px; overflow: hidden;
-          box-shadow: 0 30px 80px rgba(0,0,0,0.06), 0 4px 16px rgba(79,70,229,0.04);
+          box-shadow:
+            0 30px 80px rgba(0,0,0,0.07),
+            0 4px 16px rgba(79,70,229,0.05),
+            0 0 0 0.5px rgba(0,0,0,0.03);
           transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
           display: flex; flex-direction: column;
         }
         .hero-phone-hovered .hero-phone {
-          transform: translateY(-4px);
-          box-shadow: 0 36px 90px rgba(0,0,0,0.09), 0 6px 20px rgba(79,70,229,0.07);
+          transform: translateY(-5px);
+          box-shadow:
+            0 40px 100px rgba(0,0,0,0.10),
+            0 8px 24px rgba(79,70,229,0.08),
+            0 0 0 0.5px rgba(0,0,0,0.04);
         }
+
         .hero-phone-island {
           position: absolute; top: 8px; left: 50%;
           transform: translateX(-50%);
@@ -508,7 +614,7 @@ export default function Hero() {
         }
         .hero-phone-avatar {
           width: 32px; height: 32px; border-radius: 9px;
-          background: linear-gradient(135deg,#4F46E5,#7C3AED);
+          background: linear-gradient(135deg, #4F46E5, #7C3AED);
           display: flex; align-items: center; justify-content: center;
           color: #fff; font-size: 0.7rem; font-weight: 700;
         }
@@ -550,6 +656,7 @@ export default function Hero() {
           width: 4px; height: 4px; border-radius: 2px; background: #4F46E5;
         }
 
+        /* ── Responsive ── */
         @media (max-width: 960px) {
           .hero-section { padding: 110px 20px 80px; }
           .hero-inner { flex-direction: column; text-align: center; gap: 48px; }
@@ -561,8 +668,9 @@ export default function Hero() {
           .hero-ctas { justify-content: center; }
           .hero-trust { justify-content: center; }
           .hero-headline br { display: none; }
-          .hero-ring { display: none; }
-          .hero-blob { display: none; }
+          .hero-accent-line { display: none; }
+          .hero-orb { display: none; }
+          .hero-float-card { display: none; }
         }
         @media (max-width: 640px) {
           .hero-section { padding: 100px 16px 60px; min-height: auto; }
