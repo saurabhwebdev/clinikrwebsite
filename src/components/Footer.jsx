@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
-  Heart, Mail, Phone, MapPin,
+  Heart, Mail, Phone, MapPin, Linkedin,
   Stethoscope, CalendarCheck, Package,
   Receipt, ClipboardList, BarChart3, Settings
 } from 'lucide-react';
@@ -109,6 +109,16 @@ export default function Footer() {
                 onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
               >
                 <Mail size={14} /> helloclinikr@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/company/clinikrindia/" target="_blank" rel="noopener noreferrer" style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                fontSize: '0.82rem', color: '#94A3B8', textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+                onMouseEnter={e => e.currentTarget.style.color = '#60A5FA'}
+                onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
+              >
+                <Linkedin size={14} /> LinkedIn — ClinIKR India
               </a>
             </div>
           </div>

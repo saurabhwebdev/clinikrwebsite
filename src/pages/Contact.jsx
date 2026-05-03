@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Mail, MapPin, Send, Clock, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Clock, CheckCircle2, Loader2, AlertCircle, Linkedin } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const contactInfo = [
-  { icon: Mail,  label: 'Email',         value: 'helloclinikr@gmail.com', href: 'mailto:helloclinikr@gmail.com' },
-  { icon: Clock, label: 'Response Time', value: 'Within 24 hours',     href: null },
-  { icon: MapPin, label: 'Based in',     value: 'India',               href: null },
+  { icon: Mail,     label: 'Email',         value: 'helloclinikr@gmail.com',    href: 'mailto:helloclinikr@gmail.com' },
+  { icon: Linkedin, label: 'LinkedIn',       value: 'ClinIKR India',             href: 'https://www.linkedin.com/company/clinikrindia/' },
+  { icon: Clock,    label: 'Response Time',  value: 'Within 24 hours',           href: null },
+  { icon: MapPin,   label: 'Based in',       value: 'India',                     href: null },
 ];
 
 const inputStyle = {
@@ -103,7 +104,7 @@ export default function Contact() {
                   {label}
                 </div>
                 {href
-                  ? <a href={href} style={{ fontSize: '0.88rem', fontWeight: 600, color: '#1A56DB', textDecoration: 'none' }}>{value}</a>
+                  ? <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} style={{ fontSize: '0.88rem', fontWeight: 600, color: '#1A56DB', textDecoration: 'none' }}>{value}</a>
                   : <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#0F172A' }}>{value}</div>
                 }
               </div>
