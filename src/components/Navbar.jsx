@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -18,6 +18,7 @@ const navLinks = [
   },
   { label: 'Workflow', href: '#workflow' },
   { label: 'Why ClinIKR', href: '#why' },
+  { label: 'Pricing', href: '#pricing' },
 ];
 
 const topLinks = [
@@ -88,6 +89,34 @@ export default function Navbar() {
               <Mail size={12} /> support@clinikr.xyz
             </a>
           </div>
+          {/* Limited time offer — centre */}
+          <a href="#pricing" style={{ textDecoration: 'none' }}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              padding: '3px 12px 3px 8px',
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              borderRadius: 100,
+              cursor: 'pointer',
+              transition: 'background 0.2s',
+            }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
+            >
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', gap: 3,
+                padding: '1px 7px', borderRadius: 100,
+                background: '#D97706', color: '#fff',
+                fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.04em',
+              }}>
+                <Zap size={9} /> LIMITED
+              </span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fff' }}>
+                Plans from <span style={{ color: '#FCD34D' }}>₹1,999</span>/mo
+              </span>
+            </div>
+          </a>
+
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="topbar-right">
             {topLinks.map(({ label, to }) => (
               <Link key={label} to={to} style={{
