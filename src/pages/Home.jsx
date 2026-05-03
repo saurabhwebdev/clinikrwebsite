@@ -7,12 +7,12 @@ import PatientModule from '../components/PatientModule'
 import AppointmentsModule from '../components/AppointmentsModule'
 import EMRModule from '../components/EMRModule'
 import BillingModule from '../components/BillingModule'
-import POSModule from '../components/POSModule'
 import InventoryModule from '../components/InventoryModule'
 import Workflow from '../components/Workflow'
 import Dashboard from '../components/Dashboard'
 import WhyCliniker from '../components/WhyCliniker'
 import Settings from '../components/Settings'
+import Pricing from '../components/Pricing'
 import TechStack from '../components/TechStack'
 import CTA from '../components/CTA'
 
@@ -29,8 +29,8 @@ export default function Home() {
       <AppointmentsModule />
       <EMRModule />
       <BillingModule />
-      <POSModule />
       <InventoryModule />
+      <Pricing />
       <Workflow />
       <Dashboard />
       <WhyCliniker />

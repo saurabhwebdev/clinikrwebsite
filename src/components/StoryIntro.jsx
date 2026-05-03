@@ -3,19 +3,16 @@ import { Clock, Frown, FileWarning } from 'lucide-react';
 
 const pains = [
   {
-    num: '01',
     icon: Clock,
     title: 'Hours lost to paperwork',
     desc: 'Patient files scattered across drawers. Appointment books overflowing. Bills handwritten and error-prone.',
   },
   {
-    num: '02',
     icon: Frown,
     title: 'Patients wait. You apologize.',
     desc: 'No system to track who\'s next, what they owe, or when they last visited. Every day feels chaotic.',
   },
   {
-    num: '03',
     icon: FileWarning,
     title: 'Data lives in 5 different places',
     desc: 'Excel for billing. WhatsApp for reminders. A diary for appointments. Nothing talks to anything.',
@@ -24,170 +21,101 @@ const pains = [
 
 export default function StoryIntro() {
   return (
-    <section
-      id="story"
-      className="section section-alt"
-      style={{
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Subtle indigo radial glow */}
-      <div style={{
-        position: 'absolute',
-        top: '20%',
-        left: '50%',
-        width: 800,
-        height: 800,
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(79,70,229,0.04) 0%, transparent 70%)',
-        transform: 'translateX(-50%)',
-        pointerEvents: 'none',
-      }} />
+    <section id="story" style={{ background: 'var(--surface)', padding: 'clamp(64px, 8vw, 100px) 24px' }}>
+      <div className="container">
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 64px)' }}
+          transition={{ duration: 0.5 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 64px)' }}
         >
-          <div className="section-label" style={{ margin: '0 auto 16px' }}>
+          <div className="section-label" style={{ margin: '0 auto 14px' }}>
             The Problem
           </div>
-          <h2 className="section-title" style={{ maxWidth: 700, margin: '0 auto 16px' }}>
+          <h2 className="section-title" style={{ maxWidth: 640, margin: '0 auto 16px' }}>
             Running a clinic shouldn't feel like{' '}
             <span className="gradient-text">fighting fires</span>
           </h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            You became a doctor to heal people, not to wrestle with spreadsheets.
-            Yet here you are — drowning in admin work every single day.
+          <p className="section-subtitle" style={{ margin: '0 auto', maxWidth: 480 }}>
+            You became a doctor to heal people — not wrestle with spreadsheets every single day.
           </p>
         </motion.div>
 
-        {/* Pain strips */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 900, margin: '0 auto' }}>
-          {pains.map(({ num, icon: Icon, title, desc }, i) => (
+        {/* Pain cards */}
+        <div className="pain-grid">
+          {pains.map(({ icon: Icon, title, desc }, i) => (
             <motion.div
-              key={num}
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="pain-strip"
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 24,
-                padding: '28px 32px',
-                background: 'var(--surface)',
-                borderRadius: 16,
-                border: '1px solid var(--border)',
-                transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-                cursor: 'default',
-              }}
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+              className="pain-card"
             >
-              {/* Number */}
-              <span style={{
-                fontSize: '2.5rem',
-                fontWeight: 800,
-                color: 'var(--primary)',
-                opacity: 0.15,
-                lineHeight: 1,
-                fontFamily: 'monospace',
-                minWidth: 56,
-                flexShrink: 0,
-              }}>
-                {num}
-              </span>
-
-              {/* Icon */}
-              <div style={{
-                width: 44,
-                height: 44,
-                borderRadius: 12,
-                background: 'var(--primary-soft)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                marginTop: 2,
-              }}>
-                <Icon size={20} color="var(--primary)" />
+              <div className="pain-icon">
+                <Icon size={20} color="#DC2626" />
               </div>
-
-              {/* Content */}
-              <div>
-                <h3 style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  color: 'var(--text)',
-                  marginBottom: 6,
-                }}>
-                  {title}
-                </h3>
-                <p style={{
-                  fontSize: '0.9rem',
-                  color: 'var(--text-secondary)',
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}>
-                  {desc}
-                </p>
-              </div>
+              <h3 className="pain-title">{title}</h3>
+              <p className="pain-desc">{desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bridge transition */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: 64,
-        }}>
-          {/* Gradient line */}
+        {/* Bridge */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          style={{ textAlign: 'center', marginTop: 'clamp(40px, 6vw, 64px)' }}
+        >
           <div style={{
-            width: 2,
-            height: 48,
-            margin: '0 auto 24px',
-            background: 'linear-gradient(to bottom, var(--primary-light), var(--primary-dark))',
-            borderRadius: 2,
+            width: 1, height: 40, margin: '0 auto 20px',
+            background: 'linear-gradient(to bottom, #BFDBFE, #1A56DB)',
           }} />
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            style={{
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-              fontWeight: 700,
-              color: 'var(--text)',
-            }}
-          >
-            What if{' '}
-            <span className="gradient-text">one app</span>
-            {' '}replaced all of that?
-          </motion.p>
-        </div>
+          <p style={{
+            fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+            fontWeight: 700, color: 'var(--text)',
+          }}>
+            What if <span className="gradient-text">one app</span> replaced all of that?
+          </p>
+        </motion.div>
       </div>
 
       <style>{`
-        .pain-strip:hover {
-          border-color: var(--primary-light) !important;
-          box-shadow: 0 8px 32px rgba(79,70,229,0.06);
-          transform: translateY(-2px);
+        .pain-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          max-width: 900px;
+          margin: 0 auto;
         }
-        @media (max-width: 640px) {
-          .pain-strip {
-            flex-direction: column !important;
-            gap: 12px !important;
-            padding: 20px !important;
-          }
-          .pain-strip span[style*="minWidth"] {
-            min-width: auto !important;
-          }
+        .pain-card {
+          padding: 28px 24px;
+          background: #F8FAFC;
+          border-radius: 16px;
+          border: 1px solid #E2E8F0;
+          border-top: 3px solid #FECACA;
+        }
+        .pain-icon {
+          width: 42px; height: 42px; border-radius: 11px;
+          background: #FEF2F2;
+          display: flex; align-items: center; justify-content: center;
+          margin-bottom: 16px;
+        }
+        .pain-title {
+          font-size: 0.97rem; font-weight: 700;
+          color: #0F172A; margin-bottom: 8px;
+        }
+        .pain-desc {
+          font-size: 0.875rem; color: #475569;
+          line-height: 1.65; margin: 0;
+        }
+        @media (max-width: 720px) {
+          .pain-grid { grid-template-columns: 1fr; max-width: 480px; }
         }
       `}</style>
     </section>

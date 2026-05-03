@@ -78,18 +78,19 @@ export default function Footer() {
           {/* Brand column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-              <img src="/logo.png" alt="Clinikr" style={{ height: 36, width: 36, borderRadius: 10 }} />
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, display: 'inline-flex' }}>
-                {'Clinikr'.split('').map((letter, i) => (
+              <img src="/logo.svg" alt="ClinIKR" style={{ height: 36, width: 36, borderRadius: 10 }} />
+              <span style={{ fontSize: '1.2rem', fontWeight: 800, display: 'inline-flex', alignItems: 'baseline' }}>
+                {'ClinIKR'.split('').map((letter, i) => (
                   <span
                     key={i}
                     className="footer-brand-letter"
-                    onMouseEnter={e => e.currentTarget.style.color = '#818CF8'}
+                    onMouseEnter={e => e.currentTarget.style.color = '#93C5FD'}
                     onMouseLeave={e => e.currentTarget.style.color = '#F8FAFC'}
                   >
                     {letter}
                   </span>
                 ))}
+                <sup style={{ fontSize: '0.52em', fontWeight: 700, marginLeft: 1, color: '#94A3B8', verticalAlign: 'super' }}>®</sup>
               </span>
             </div>
             <p style={{
@@ -97,7 +98,7 @@ export default function Footer() {
               maxWidth: 320, marginBottom: 20,
             }}>
               The all-in-one clinic management app. Patients, appointments, EMR,
-              billing, POS, inventory — everything in your pocket.
+              billing and inventory — everything in your pocket.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <a href="mailto:support@clinikr.xyz" style={{
@@ -195,7 +196,7 @@ export default function Footer() {
         position: 'relative', zIndex: 1,
       }}>
         <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
-          © {new Date().getFullYear()} Clinikr. All rights reserved.
+          © {new Date().getFullYear()} ClinIKR. All rights reserved.
         </span>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 6,

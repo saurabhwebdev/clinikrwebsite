@@ -99,7 +99,7 @@ export default function CTA() {
                   marginBottom: 32,
                 }}>
                   Stop juggling spreadsheets, paper files, and disconnected tools.
-                  Clinikr brings everything together in one beautiful app.
+                  ClinIKR brings everything together in one beautiful app.
                 </p>
 
                 {/* CTA buttons */}
@@ -184,7 +184,7 @@ export default function CTA() {
             >
               <img
                 src="/images/doctors.svg"
-                alt="Doctors using Clinikr"
+                alt="Doctors using ClinIKR"
                 style={{ width: '100%', maxWidth: 400, height: 'auto', filter: 'drop-shadow(0 8px 30px rgba(99,102,241,0.15))' }}
               />
             </motion.div>

@@ -35,7 +35,7 @@ export default function WhyCliniker() {
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
           <div className="section-label" style={{ margin: '0 auto 16px' }}>
-            Why Clinikr?
+            Why ClinIKR?
           </div>
           <h2 className="section-title" style={{ maxWidth: 700, margin: '0 auto 16px' }}>
             Built different. <span className="gradient-text">Built better.</span>

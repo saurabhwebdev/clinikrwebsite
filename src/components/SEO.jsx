@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const SITE = 'https://clinikr.xyz';
-const DEFAULT_TITLE = 'Clinikr — Your Entire Clinic in One App | Simple, Fair Pricing';
+const DEFAULT_TITLE = 'ClinIKR — Your Entire Clinic in One App | Simple, Fair Pricing';
 const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one app. Try it today — set up your clinic in just 2 minutes.';
 const OG_IMAGE = `${SITE}/og-image.png`;
 
@@ -26,7 +26,7 @@ function setCanonical(href) {
 }
 
 export default function SEO({ title, description, path = '/' }) {
-  const pageTitle = title ? `${title} | Clinikr` : DEFAULT_TITLE;
+  const pageTitle = title ? `${title} | ClinIKR` : DEFAULT_TITLE;
   const pageDesc = description || DEFAULT_DESC;
   const url = `${SITE}${path}`;
 
@@ -42,7 +42,7 @@ export default function SEO({ title, description, path = '/' }) {
     setMeta('property', 'og:image', OG_IMAGE);
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
-    setMeta('property', 'og:site_name', 'Clinikr');
+    setMeta('property', 'og:site_name', 'ClinIKR');
 
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:url', url);

@@ -51,7 +51,7 @@ export default function Settings() {
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
             Every clinic is different. Customize invoice formats, set up payment gateways,
-            manage your team, configure working hours — tailor Clinikr to your practice.
+            manage your team, configure working hours — tailor ClinIKR to your practice.
           </p>
         </motion.div>
 

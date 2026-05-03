@@ -13,12 +13,11 @@ const navLinks = [
       { label: 'Appointments', href: '#modules' },
       { label: 'EMR & Records', href: '#modules' },
       { label: 'Billing', href: '#modules' },
-      { label: 'Point of Sale', href: '#modules' },
       { label: 'Inventory', href: '#modules' },
     ],
   },
   { label: 'Workflow', href: '#workflow' },
-  { label: 'Why Clinikr', href: '#why' },
+  { label: 'Why ClinIKR', href: '#why' },
 ];
 
 const topLinks = [
@@ -64,8 +63,8 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1001,
-        background: '#0F172A',
-        borderBottom: '1px solid #1E293B',
+        background: '#1E40AF',
+        borderBottom: '1px solid #1A56DB',
         transform: scrolled ? 'translateY(-100%)' : 'translateY(0)',
         transition: 'transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
@@ -80,11 +79,11 @@ export default function Navbar() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="topbar-left">
             <a href="mailto:support@clinikr.xyz" style={{
               display: 'flex', alignItems: 'center', gap: 6,
-              fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'none',
+              fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', textDecoration: 'none',
               transition: 'color 0.2s',
             }}
-              onMouseEnter={e => e.currentTarget.style.color = '#C7D2FE'}
-              onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
+              onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
             >
               <Mail size={12} /> support@clinikr.xyz
             </a>
@@ -92,15 +91,15 @@ export default function Navbar() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="topbar-right">
             {topLinks.map(({ label, to }) => (
               <Link key={label} to={to} style={{
-                fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'none',
+                fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', textDecoration: 'none',
                 padding: '4px 10px', borderRadius: 6, transition: 'all 0.2s',
               }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.color = '#C7D2FE';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.color = '#FFFFFF';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.color = '#94A3B8';
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.85)';
                   e.currentTarget.style.background = 'transparent';
                 }}
               >
@@ -125,13 +124,13 @@ export default function Navbar() {
         alignItems: 'center',
         justifyContent: 'center',
         background: scrolled
-          ? 'linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%)'
-          : 'linear-gradient(135deg, rgba(79,70,229,0.92) 0%, rgba(99,102,241,0.92) 50%, rgba(124,58,237,0.92) 100%)',
+          ? 'linear-gradient(135deg, #1A56DB 0%, #1E40AF 100%)'
+          : 'linear-gradient(135deg, rgba(26,86,219,0.95) 0%, rgba(30,64,175,0.95) 100%)',
         backdropFilter: 'blur(20px)',
         borderRadius: 100,
         boxShadow: scrolled
-          ? '0 8px 32px rgba(79,70,229,0.3), 0 2px 8px rgba(0,0,0,0.1)'
-          : '0 4px 24px rgba(79,70,229,0.2), 0 1px 4px rgba(0,0,0,0.06)',
+          ? '0 8px 32px rgba(26,86,219,0.35), 0 2px 8px rgba(0,0,0,0.1)'
+          : '0 4px 24px rgba(26,86,219,0.2), 0 1px 4px rgba(0,0,0,0.06)',
         border: '1px solid rgba(255,255,255,0.15)',
         transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
         overflow: 'visible',
@@ -149,11 +148,9 @@ export default function Navbar() {
           zIndex: 1,
         }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
-            <img src="/logo.png" alt="Clinikr" style={{
+            <img src="/logo.svg" alt="Clinikr" style={{
               height: 32,
               width: 32,
-              borderRadius: 8,
-              border: '2px solid rgba(255,255,255,0.25)',
             }} />
             <span style={{
               fontSize: '1.15rem',
@@ -161,7 +158,7 @@ export default function Navbar() {
               color: '#fff',
               letterSpacing: '-0.02em',
             }}>
-              Clinikr
+              ClinIKR<sup style={{ fontSize: '0.55em', fontWeight: 700, verticalAlign: 'super', marginLeft: 1 }}>®</sup>
             </span>
           </Link>
 
@@ -298,7 +295,7 @@ export default function Navbar() {
             <a href={isHome ? '#cta' : '/#cta'} style={{
               padding: '8px 22px',
               background: '#fff',
-              color: '#4F46E5',
+              color: '#1A56DB',
               borderRadius: 100,
               fontSize: '0.85rem',
               fontWeight: 700,
@@ -308,8 +305,8 @@ export default function Navbar() {
               boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = '#EEF2FF';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+                e.currentTarget.style.background = '#EFF6FF';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(26,86,219,0.2)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = '#fff';
@@ -357,13 +354,13 @@ export default function Navbar() {
               maxHeight: 'calc(100dvh - 92px)',
               overflowY: 'auto',
               zIndex: 999,
-              background: 'linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%)',
+              background: 'linear-gradient(135deg, #1A56DB 0%, #1E40AF 100%)',
               borderRadius: 24,
               padding: '20px 24px',
               display: 'flex',
               flexDirection: 'column',
               gap: 4,
-              boxShadow: '0 12px 40px rgba(79,70,229,0.35), 0 4px 12px rgba(0,0,0,0.1)',
+              boxShadow: '0 12px 40px rgba(26,86,219,0.35), 0 4px 12px rgba(0,0,0,0.1)',
               border: '1px solid rgba(255,255,255,0.15)',
             }}
           >
@@ -459,7 +456,7 @@ export default function Navbar() {
             <a href={isHome ? '#cta' : '/#cta'} onClick={() => setOpen(false)} style={{
               padding: '12px 24px',
               background: '#fff',
-              color: '#4F46E5',
+              color: '#1A56DB',
               borderRadius: 14,
               fontSize: '0.9rem',
               fontWeight: 700,

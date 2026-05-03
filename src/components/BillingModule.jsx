@@ -1,38 +1,35 @@
 import { motion } from 'framer-motion';
 import {
-  Receipt, CreditCard, IndianRupee, FileCheck,
-  Send, Percent, Building2, ArrowRight
+  Receipt, CreditCard, IndianRupee, Send, Percent, ArrowRight
 } from 'lucide-react';
 
 const invoiceStates = [
-  { label: 'Draft', color: '#94A3B8', bg: '#F1F5F9' },
-  { label: 'Sent', color: '#3B82F6', bg: '#EFF6FF' },
-  { label: 'Partial', color: '#F59E0B', bg: '#FFFBEB' },
-  { label: 'Paid', color: '#22C55E', bg: '#F0FDF4' },
+  { label: 'Draft',   color: '#94A3B8', bg: '#F1F5F9' },
+  { label: 'Sent',    color: '#1A56DB', bg: '#EFF6FF' },
+  { label: 'Partial', color: '#D97706', bg: '#FFFBEB' },
+  { label: 'Paid',    color: '#059669', bg: '#ECFDF5' },
 ];
 
 const features = [
-  { icon: IndianRupee, title: 'GST Compliant', desc: 'CGST/SGST for intra-state, IGST for inter-state. GSTIN, HSN codes, tax reports.' },
-  { icon: CreditCard, title: 'Flexible Payments', desc: 'Cash, card, UPI, bank transfer. Split payments. Partial payments with balance tracking.' },
-  { icon: Send, title: 'Share Instantly', desc: 'Generate PDF invoices. Send via WhatsApp, email, or print. One tap sharing.' },
-  { icon: Percent, title: 'Discounts & More', desc: 'Percentage or fixed discounts. Custom services. Configurable invoice numbering.' },
+  { icon: IndianRupee, title: 'GST Compliant',     desc: 'CGST/SGST for intra-state, IGST for inter-state. GSTIN, HSN codes, tax reports.' },
+  { icon: CreditCard,  title: 'Flexible Payments',  desc: 'Cash, card, UPI, bank transfer. Split payments. Partial payments with balance tracking.' },
+  { icon: Send,        title: 'Share Instantly',    desc: 'Generate PDF invoices. Send via WhatsApp, email, or print. One tap sharing.' },
+  { icon: Percent,     title: 'Discounts & More',   desc: 'Percentage or fixed discounts. Custom services. Configurable invoice numbering.' },
 ];
 
 export default function BillingModule() {
   return (
-    <section className="section">
+    <section style={{ background: '#F8FAFC', padding: 'clamp(64px, 8vw, 100px) 24px' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }} className="grid-2">
-          {/* Left - features */}
+        <div className="mod-grid">
+          {/* Copy — left */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.55 }}
           >
-            <div className="section-label">
-              <Receipt size={14} /> Invoicing & Billing
-            </div>
+            <div className="section-label"><Receipt size={14} /> Invoicing & Billing</div>
             <h2 className="section-title">
               Get paid. <span className="gradient-text">On time.</span>
             </h2>
@@ -45,118 +42,96 @@ export default function BillingModule() {
               {features.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
                   key={title}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.1 }}
-                  style={{ display: 'flex', gap: 16, alignItems: 'start' }}
+                  transition={{ delay: 0.15 + i * 0.08 }}
+                  style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}
                 >
                   <div style={{
-                    width: 40, height: 40, borderRadius: 10,
-                    background: '#FFF7ED',
+                    width: 38, height: 38, borderRadius: 10,
+                    background: '#FFFBEB',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0,
                   }}>
-                    <Icon size={18} color="#F59E0B" />
+                    <Icon size={17} color="#D97706" />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: 2 }}>{title}</h4>
-                    <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{desc}</p>
+                    <h4 style={{ fontSize: '0.93rem', fontWeight: 700, marginBottom: 3, color: '#0F172A' }}>{title}</h4>
+                    <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>{desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right - invoice lifecycle visual */}
+          {/* Mock invoice — right */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.15 }}
           >
-            {/* Mock invoice card */}
-            <div style={{
-              background: 'var(--surface)',
-              borderRadius: 20,
-              border: '1px solid var(--border)',
-              padding: 32,
-              boxShadow: '0 4px 30px rgba(0,0,0,0.04)',
-            }}>
+            <div className="mod-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24 }}>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500 }}>INVOICE</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text)' }}>INV-000042</div>
+                  <div style={{ fontSize: '0.7rem', color: '#94A3B8', fontWeight: 500 }}>INVOICE</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A' }}>INV-000042</div>
                 </div>
                 <div style={{
-                  padding: '6px 14px', borderRadius: 8,
-                  background: '#F0FDF4', color: '#22C55E',
-                  fontSize: '0.8rem', fontWeight: 600, alignSelf: 'start',
-                }}>
-                  PAID
-                </div>
+                  padding: '5px 12px', borderRadius: 8, alignSelf: 'flex-start',
+                  background: '#ECFDF5', color: '#059669', fontSize: '0.78rem', fontWeight: 600,
+                }}>PAID</div>
               </div>
 
               <div style={{
-                display: 'grid', gridTemplateColumns: '1fr 1fr',
-                gap: 16, marginBottom: 24,
-                padding: '16px 0',
-                borderTop: '1px solid var(--border)',
-                borderBottom: '1px solid var(--border)',
+                display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24,
+                padding: '16px 0', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0',
               }}>
                 <div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: 2 }}>Patient</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>Rahul Sharma</div>
+                  <div style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 2 }}>Patient</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0F172A' }}>Rahul Sharma</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: 2 }}>Date</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>09 Feb 2026</div>
+                  <div style={{ fontSize: '0.7rem', color: '#94A3B8', marginBottom: 2 }}>Date</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0F172A' }}>09 Feb 2026</div>
                 </div>
               </div>
 
-              {/* Line items */}
               {[
                 { name: 'General Consultation', qty: 1, amt: '500.00' },
-                { name: 'Blood Test (CBC)', qty: 1, amt: '350.00' },
-                { name: 'Paracetamol 500mg', qty: 10, amt: '120.00' },
-              ].map(item => (
+                { name: 'Follow-up Visit',      qty: 1, amt: '250.00' },
+                { name: 'Paracetamol 500mg',    qty: 10, amt: '120.00' },
+              ].map((item, i) => (
                 <div key={item.name} style={{
                   display: 'flex', justifyContent: 'space-between',
-                  padding: '10px 0', fontSize: '0.82rem',
+                  padding: '9px 0', fontSize: '0.82rem',
+                  borderBottom: i < 2 ? '1px solid #F1F5F9' : 'none',
                 }}>
                   <div>
-                    <span style={{ color: 'var(--text)' }}>{item.name}</span>
-                    <span style={{ color: 'var(--text-muted)', marginLeft: 8 }}>x{item.qty}</span>
+                    <span style={{ color: '#0F172A' }}>{item.name}</span>
+                    <span style={{ color: '#94A3B8', marginLeft: 8 }}>×{item.qty}</span>
                   </div>
-                  <span style={{ fontWeight: 600 }}>₹{item.amt}</span>
+                  <span style={{ fontWeight: 600, color: '#0F172A' }}>₹{item.amt}</span>
                 </div>
               ))}
 
               <div style={{
                 display: 'flex', justifyContent: 'space-between',
-                padding: '16px 0 0',
-                borderTop: '2px solid var(--text)',
-                marginTop: 8,
+                padding: '14px 0 0', borderTop: '2px solid #0F172A', marginTop: 8,
               }}>
-                <span style={{ fontWeight: 700, fontSize: '1rem' }}>Total</span>
-                <span style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--primary)' }}>₹970.00</span>
+                <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0F172A' }}>Total</span>
+                <span style={{ fontWeight: 800, fontSize: '1.05rem', color: '#1A56DB' }}>₹870.00</span>
               </div>
 
-              {/* Status flow */}
-              <div style={{
-                display: 'flex', gap: 8, marginTop: 20, justifyContent: 'center', flexWrap: 'wrap',
-              }}>
+              <div style={{ display: 'flex', gap: 8, marginTop: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
                 {invoiceStates.map(({ label, color, bg }, i) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{
                       padding: '4px 10px', borderRadius: 6,
                       background: bg, color, fontSize: '0.7rem', fontWeight: 600,
-                    }}>
-                      {label}
-                    </span>
-                    {i < invoiceStates.length - 1 && (
-                      <ArrowRight size={12} color="var(--text-muted)" />
-                    )}
+                    }}>{label}</span>
+                    {i < invoiceStates.length - 1 && <ArrowRight size={12} color="#CBD5E1" />}
                   </div>
                 ))}
               </div>

@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 
 const faqs = [
   {
-    q: 'How do I get started with Clinikr?',
+    q: 'How do I get started with ClinIKR?',
     a: 'Download the app from Google Play or the App Store, create an account, set up your clinic details, and you\'re ready to go. The entire setup takes less than 2 minutes.',
   },
   {
@@ -11,8 +11,8 @@ const faqs = [
     a: 'Yes. All data is encrypted in transit and at rest. We use PostgreSQL Row-Level Security to isolate each clinic\'s data, and our infrastructure runs on Supabase with SOC 2 compliance.',
   },
   {
-    q: 'Can I use Clinikr offline?',
-    a: 'Clinikr requires an internet connection for real-time sync. However, cached data is available for viewing. Full offline mode with sync-on-reconnect is on our roadmap.',
+    q: 'Can I use ClinIKR offline?',
+    a: 'ClinIKR requires an internet connection for real-time sync. However, cached data is available for viewing. Full offline mode with sync-on-reconnect is on our roadmap.',
   },
   {
     q: 'How do I add staff members to my clinic?',
@@ -23,8 +23,8 @@ const faqs = [
     a: 'Yes. Go to Settings > Invoice Settings to customize your invoice prefix, numbering, terms and conditions, and payment instructions. Your clinic logo and GSTIN appear automatically.',
   },
   {
-    q: 'How much does Clinikr cost?',
-    a: 'Clinikr offers simple, fair pricing plans for clinics of all sizes. All core features — patient management, appointments, EMR, billing, and inventory — are included with no hidden charges.',
+    q: 'How much does ClinIKR cost?',
+    a: 'ClinIKR offers simple, fair pricing plans for clinics of all sizes. All core features — patient management, appointments, EMR, billing, and inventory — are included with no hidden charges.',
   },
 ];
 
@@ -41,7 +41,7 @@ const channels = [
     icon: MessageCircle,
     title: 'In-App Help Center',
     desc: 'Browse guides and FAQs directly in the app',
-    action: 'Open Clinikr > Settings > Help',
+    action: 'Open ClinIKR > Settings > Help',
     href: null,
     color: '#22C55E',
   },
@@ -58,7 +58,7 @@ const channels = [
 export default function Support() {
   return (
     <div style={{ paddingTop: 100 }}>
-      <SEO title="Support & Help" description="Get help with Clinikr. Browse FAQs, contact our support team, and find answers to common questions about clinic management." path="/support" />
+      <SEO title="Support & Help" description="Get help with ClinIKR. Browse FAQs, contact our support team, and find answers to common questions about clinic management." path="/support" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>

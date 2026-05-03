@@ -16,7 +16,7 @@ const sections = [
     icon: Database,
     title: 'How We Use Your Data',
     content: [
-      'To provide and maintain the Clinikr service — syncing your clinic data across devices.',
+      'To provide and maintain the ClinIKR service — syncing your clinic data across devices.',
       'To generate invoices, prescriptions, reports, and other documents you request.',
       'To send transactional emails (appointment reminders, invoice receipts) on your behalf.',
       'To improve the app through anonymized, aggregated analytics. We never sell your data.',
@@ -57,7 +57,7 @@ const sections = [
 export default function Privacy() {
   return (
     <div style={{ paddingTop: 100 }}>
-      <SEO title="Privacy Policy" description="Learn how Clinikr collects, uses, and protects your clinic and patient data. Your privacy and data security are our top priority." path="/privacy" />
+      <SEO title="Privacy Policy" description="Learn how ClinIKR collects, uses, and protects your clinic and patient data. Your privacy and data security are our top priority." path="/privacy" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>

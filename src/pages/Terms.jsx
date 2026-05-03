@@ -6,8 +6,8 @@ const sections = [
     icon: CheckCircle2,
     title: 'Acceptance of Terms',
     content: [
-      'By downloading, installing, or using Clinikr, you agree to be bound by these Terms of Service.',
-      'If you are using Clinikr on behalf of a clinic or organization, you represent that you have authority to bind that entity to these terms.',
+      'By downloading, installing, or using ClinIKR, you agree to be bound by these Terms of Service.',
+      'If you are using ClinIKR on behalf of a clinic or organization, you represent that you have authority to bind that entity to these terms.',
       'We may update these terms from time to time. Continued use after changes constitutes acceptance.',
       'If you do not agree with any part of these terms, you must discontinue use of the app.',
     ],
@@ -16,7 +16,7 @@ const sections = [
     icon: FileText,
     title: 'Use of Service',
     content: [
-      'Clinikr is a clinic management tool designed for licensed healthcare professionals and their authorized staff.',
+      'ClinIKR is a clinic management tool designed for licensed healthcare professionals and their authorized staff.',
       'You are responsible for all data entered into the app, including patient records, prescriptions, and billing information.',
       'You must comply with all applicable local, state, and national laws, including healthcare data regulations.',
       'You agree not to use the service for any unlawful purpose or in a way that could damage, disable, or impair our servers.',
@@ -26,7 +26,7 @@ const sections = [
     icon: Scale,
     title: 'Intellectual Property',
     content: [
-      'Clinikr, its logo, design, and all associated content are the intellectual property of Clinikr and its creators.',
+      'ClinIKR, its logo, design, and all associated content are the intellectual property of ClinIKR and its creators.',
       'You are granted a limited, non-exclusive, non-transferable license to use the app for your clinic operations.',
       'You may not reverse-engineer, decompile, or attempt to extract the source code of the app.',
       'All patient data and clinic data you enter remains your property. We do not claim ownership of your data.',
@@ -36,7 +36,7 @@ const sections = [
     icon: AlertTriangle,
     title: 'Limitation of Liability',
     content: [
-      'Clinikr is provided "as is" without warranties of any kind, express or implied.',
+      'ClinIKR is provided "as is" without warranties of any kind, express or implied.',
       'We are not liable for any medical decisions made based on data stored in the app.',
       'We do not guarantee uninterrupted or error-free operation, though we strive for maximum uptime.',
       'Our total liability shall not exceed the amount paid by you for the service in the 12 months preceding any claim.',
@@ -67,7 +67,7 @@ const sections = [
 export default function Terms() {
   return (
     <div style={{ paddingTop: 100 }}>
-      <SEO title="Terms of Service" description="Read the terms and conditions for using Clinikr, the all-in-one clinic management app for healthcare professionals." path="/terms" />
+      <SEO title="Terms of Service" description="Read the terms and conditions for using ClinIKR, the all-in-one clinic management app for healthcare professionals." path="/terms" />
       <section className="section">
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
@@ -78,7 +78,7 @@ export default function Terms() {
               Terms & <span className="gradient-text">Conditions</span>
             </h1>
             <p className="section-subtitle" style={{ margin: '0 auto 8px' }}>
-              Please read these terms carefully before using Clinikr.
+              Please read these terms carefully before using ClinIKR.
             </p>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
               Last updated: February 2026
