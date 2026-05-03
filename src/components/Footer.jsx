@@ -101,7 +101,7 @@ export default function Footer() {
               billing and inventory — everything in your pocket.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <a href="mailto:support@clinikr.xyz" style={{
+              <a href="mailto:helloclinikr@gmail.com" style={{
                 display: 'flex', alignItems: 'center', gap: 8,
                 fontSize: '0.82rem', color: '#94A3B8', textDecoration: 'none',
                 transition: 'color 0.2s',
@@ -109,7 +109,7 @@ export default function Footer() {
                 onMouseEnter={e => e.currentTarget.style.color = '#818CF8'}
                 onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}
               >
-                <Mail size={14} /> support@clinikr.xyz
+                <Mail size={14} /> helloclinikr@gmail.com
               </a>
             </div>
           </div>

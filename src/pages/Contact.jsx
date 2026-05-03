@@ -3,7 +3,7 @@ import { Mail, MapPin, Send, Clock, CheckCircle2, Loader2, AlertCircle } from 'l
 import SEO from '../components/SEO';
 
 const contactInfo = [
-  { icon: Mail,  label: 'Email',         value: 'support@clinikr.xyz', href: 'mailto:support@clinikr.xyz' },
+  { icon: Mail,  label: 'Email',         value: 'helloclinikr@gmail.com', href: 'mailto:helloclinikr@gmail.com' },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours',     href: null },
   { icon: MapPin, label: 'Based in',     value: 'India',               href: null },
 ];
