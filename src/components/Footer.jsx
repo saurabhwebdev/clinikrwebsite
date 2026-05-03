@@ -46,7 +46,7 @@ export default function Footer() {
         userSelect: 'none',
         lineHeight: 0.75,
       }}>
-        ClinIKR<sup style={{ fontSize: '0.2em', position: 'relative', top: '-1.8em', verticalAlign: 'baseline' }}>®</sup>
+        ClinIKR<sup style={{ fontSize: '0.2em', position: 'relative', top: '-3em', verticalAlign: 'baseline' }}>®</sup>
       </div>
 
       {/* Decorative illustration */}
