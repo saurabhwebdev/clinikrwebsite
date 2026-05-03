@@ -80,7 +80,7 @@ export default function Pricing() {
 
         {/* Cards */}
         <div className="pricing-grid">
-          {plans.map(({ name, dot, tag, price, period, desc, features, cta, featured }, i) => (
+          {plans.map(({ name, dot, tag, price, period, desc, features, cta, href, featured }, i) => (
             <motion.div
               key={name}
               initial={{ opacity: 0, y: 24 }}
