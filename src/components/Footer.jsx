@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   Heart, Mail, Phone, MapPin,
-  Stethoscope, CalendarCheck, Package, ShoppingCart,
+  Stethoscope, CalendarCheck, Package,
   Receipt, ClipboardList, BarChart3, Settings
 } from 'lucide-react';
 
@@ -10,7 +10,6 @@ const modules = [
   { icon: CalendarCheck, label: 'Appointments' },
   { icon: ClipboardList, label: 'EMR & Prescriptions' },
   { icon: Receipt, label: 'Billing & Invoicing' },
-  { icon: ShoppingCart, label: 'Point of Sale' },
   { icon: Package, label: 'Inventory' },
   { icon: BarChart3, label: 'Dashboard & Reports' },
   { icon: Settings, label: 'Clinic Settings' },

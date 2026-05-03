@@ -116,7 +116,7 @@ export default function Privacy() {
               <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>Questions about privacy?</span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
-              Reach out to us at <a href="mailto:privacy@clinikr.xyz" style={{ color: 'var(--primary)', fontWeight: 600 }}>privacy@clinikr.xyz</a>
+              Reach out to us at <a href="mailto:helloclinikr@gmail.com" style={{ color: 'var(--primary)', fontWeight: 600 }}>helloclinikr@gmail.com</a>
             </p>
           </div>
         </div>

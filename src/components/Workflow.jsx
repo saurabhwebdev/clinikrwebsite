@@ -11,7 +11,7 @@ const steps = [
   { icon: HeartPulse, title: 'Vitals', desc: 'BP, temp, pulse, SpO2 — one screen.', time: '9:15 AM', color: '#06B6D4' },
   { icon: ClipboardList, title: 'Diagnose', desc: 'Findings, ICD-10 diagnosis, treatment.', time: '9:20 AM', color: '#7C3AED' },
   { icon: Pill, title: 'Prescribe', desc: 'Medicines with dosage & instructions.', time: '9:30 AM', color: '#EC4899' },
-  { icon: Receipt, title: 'Bill & Dispense', desc: 'Invoice + POS sale. Stock auto-deducts.', time: '9:32 AM', color: '#F59E0B' },
+  { icon: Receipt, title: 'Bill & Dispense', desc: 'Invoice generated. Stock auto-deducts.', time: '9:32 AM', color: '#F59E0B' },
   { icon: CheckCircle2, title: 'Complete', desc: 'PDF report generated. Patient leaves.', time: '9:35 AM', color: '#22C55E' },
 ];
 

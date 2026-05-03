@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE = 'https://clinikr.xyz';
 const DEFAULT_TITLE = 'ClinIKR — Your Entire Clinic in One App | Simple, Fair Pricing';
-const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, POS, inventory and analytics — all in one app. Try it today — set up your clinic in just 2 minutes.';
+const DEFAULT_DESC = 'Manage patients, appointments, EMR, billing, inventory and analytics — all in one app. Try it today — set up your clinic in just 2 minutes.';
 const OG_IMAGE = `${SITE}/og-image.png`;
 
 function setMeta(attr, key, content) {
