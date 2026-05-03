@@ -14,6 +14,7 @@ const plans = [
       'Basic billing',
     ],
     cta: 'Get Started',
+    href: '/contact?plan=Starter',
     featured: false,
   },
   {
@@ -30,7 +31,8 @@ const plans = [
       'Inventory management',
       'Automatic backups',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
+    href: '/contact?plan=Growth',
     featured: true,
   },
   {
@@ -47,6 +49,7 @@ const plans = [
       'Advanced features',
     ],
     cta: 'Contact Us',
+    href: '/contact?plan=Premium',
     featured: false,
   },
 ];
@@ -86,6 +89,7 @@ export default function Pricing() {
               transition={{ duration: 0.45, delay: i * 0.1 }}
               className={`pricing-card${featured ? ' pricing-featured' : ''}`}
             >
+
               {/* Popular tag */}
               {tag && (
                 <div className="pricing-tag">
@@ -155,7 +159,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="#cta"
+                href={href}
                 className={featured ? 'pricing-cta-primary' : 'pricing-cta-secondary'}
               >
                 {cta}

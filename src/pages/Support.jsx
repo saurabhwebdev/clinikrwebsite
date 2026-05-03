@@ -4,7 +4,7 @@ import SEO from '../components/SEO';
 const faqs = [
   {
     q: 'How do I get started with ClinIKR?',
-    a: 'Download the app from Google Play or the App Store, create an account, set up your clinic details, and you\'re ready to go. The entire setup takes less than 2 minutes.',
+    a: 'Download the app from Google Play, create an account, set up your clinic details, and you\'re ready to go. The entire setup takes less than 2 minutes.',
   },
   {
     q: 'Is my patient data secure?',

@@ -17,7 +17,7 @@ const extras = [
   { icon: Languages, text: 'English and Hindi support' },
   { icon: Fingerprint, text: 'Biometric authentication' },
   { icon: Palette, text: 'Custom brand colors' },
-  { icon: Globe, text: 'iOS, Android — one codebase' },
+  { icon: Globe, text: 'Android — works on all devices' },
   { icon: Lock, text: 'Encrypted at rest and in transit' },
   { icon: RefreshCw, text: 'Real-time sync across devices' },
   { icon: HeadphonesIcon, text: 'Built-in help center and live support' },

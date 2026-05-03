@@ -169,7 +169,7 @@ export default function Footer() {
                 Available On
               </h4>
               <div style={{ display: 'flex', gap: 8 }}>
-                {['Android', 'iOS'].map(platform => (
+                {['Android'].map(platform => (
                   <span key={platform} style={{
                     padding: '5px 14px', borderRadius: 8,
                     background: '#1E293B', border: '1px solid #334155',
