@@ -16,6 +16,7 @@ const modules = [
 ];
 
 const links = [
+  { label: 'About Us', href: '/about' },
   { label: 'Privacy Policy', href: '/privacy' },
   { label: 'Terms of Service', href: '/terms' },
   { label: 'Support', href: '/support' },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail, ChevronDown, Zap } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown, Zap, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -78,7 +78,7 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="topbar-left">
-            <a href="mailto:support@clinikr.xyz" style={{
+            <a href="mailto:helloclinikr@gmail.com" style={{
               display: 'flex', alignItems: 'center', gap: 6,
               fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', textDecoration: 'none',
               transition: 'color 0.2s',
@@ -86,7 +86,7 @@ export default function Navbar() {
               onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
             >
-              <Mail size={12} /> support@clinikr.xyz
+              <Mail size={12} /> helloclinikr@gmail.com
             </a>
           </div>
           {/* Limited time offer — centre */}
@@ -118,6 +118,14 @@ export default function Navbar() {
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="topbar-right">
+            <a href="https://www.linkedin.com/company/clinikrindia/" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', padding: '4px 8px', borderRadius: 6, color: 'rgba(255,255,255,0.75)', transition: 'all 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; e.currentTarget.style.background = 'transparent'; }}
+              title="ClinIKR on LinkedIn"
+            >
+              <Linkedin size={13} />
+            </a>
             {topLinks.map(({ label, to }) => (
               <Link key={label} to={to} style={{
                 fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', textDecoration: 'none',
